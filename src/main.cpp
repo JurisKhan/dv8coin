@@ -832,31 +832,94 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
 
     int64 nSubsidy = 420 * COIN;
 	
-    if(nHeight <= 10000)
+    if(nHeight <= 8000)
     {
-		nSubsidy = 50000 * COIN;
+		nSubsidy = 380000 * COIN;
     }
-    else if(nHeight <= 12500)
+    else if(nHeight <= 16000)
     {
-		nSubsidy = 25000 * COIN;
+		nSubsidy = 190000 * COIN;
     }
-    else if(nHeight <= 15000)
+    else if(nHeight <= 32000)
     {
-     	nSubsidy = 12500 * COIN;
+     	nSubsidy = 95000 * COIN;
     }
-    else if(nHeight <= 17500)
+    else if(nHeight <= 48000)
     {
-		nSubsidy = 6250 * COIN;
+		nSubsidy = 45000 * COIN;
     }
-    else if(nHeight <= 20000)
+    else if(nHeight <= 64000)
     {
-		nSubsidy = 3125 * COIN;
+		nSubsidy = 23750 * COIN;
     }
+	else if(nHeight <= 80000)
+    {
+		nSubsidy = 11875 * COIN;
+    }
+	else if(nHeight <= 120000)
+    {
+		nSubsidy = 5937 * COIN;
+    }
+	else if(nHeight <= 180000)
+    {
+		nSubsidy = 2968 * COIN;
+    }
+	else if(nHeight <= 280000)
+    {
+		nSubsidy = 1484 * COIN;
+    }
+	else if(nHeight <= 380000)
+    {
+		nSubsidy = 742 * COIN;
+    }
+	else if(nHeight <= 480000)
+    {
+		nSubsidy = 371 * COIN;
+    }
+	
+	//Crazy 8 Block rewards
+	if(nHeight == 8)
+	{
+		nSubsidy= 83902224 * COIN;
+	}
+	if(nHeight == 88)
+	{
+		nSubsidy= 83902222 * COIN;
+	}
+	if(nHeight == 888)
+	{
+		nSubsidy= 83902222 * COIN;
+	}
+	if(nHeight == 8888)
+	{
+		nSubsidy= 83902222 * COIN;
+	}
+	if(nHeight == 88888)
+	{
+		nSubsidy= 83902222 * COIN;
+	}
+	if(nHeight == 888888)
+	{
+		nSubsidy= 83902222 * COIN;
+	}
+	if(nHeight == 8888888)
+	{
+		nSubsidy= 83902222 * COIN;
+	}
+	if(nHeight == 88888888)
+	{
+		nSubsidy= 83902222 * COIN;
+	}
+	if(nHeight == 88888888)
+	{
+		nSubsidy= 83902222 * COIN;
+	}
+	/* No inflation
     else
     {
 		nSubsidy = 1563 * COIN;
     }
-	 
+	 */
     return nSubsidy + nFees;
 }
 
