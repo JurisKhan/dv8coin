@@ -152,12 +152,6 @@ void static ResendWalletTransactions()
         pwallet->ResendWalletTransactions();
 }
 
-
-
-
-
-
-
 //////////////////////////////////////////////////////////////////////////////
 //
 // mapOrphanTransactions
