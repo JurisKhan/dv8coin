@@ -826,10 +826,43 @@ uint256 static GetOrphanRoot(const CBlock* pblock)
     return pblock->GetHash();
 }
 
+static const int64 nGenesisBlockRewardCoin = 1 * COIN;
+
 int64 static GetBlockValue(int nHeight, int64 nFees)
 {
-    int64 nSubsidy = 1 * COIN;
+	// If the genesis block has been mined out
+    if (nHeight == 0)
+    {
+        return nGenesisBlockRewardCoin;
+    }
 
+    int64 nSubsidy = 420 * COIN;
+	
+    if(nHeight <= 10000)
+    {
+		nSubsidy = 50000 * COIN;
+    }
+    else if(nHeight <= 12500)
+    {
+		nSubsidy = 25000 * COIN;
+    }
+    else if(nHeight <= 15000)
+    {
+     	nSubsidy = 12500 * COIN;
+    }
+    else if(nHeight <= 17500)
+    {
+		nSubsidy = 6250 * COIN;
+    }
+    else if(nHeight <= 20000)
+    {
+		nSubsidy = 3125 * COIN;
+    }
+    else
+    {
+		nSubsidy = 1563 * COIN;
+    }
+	 
     return nSubsidy + nFees;
 }
 
@@ -1008,16 +1041,6 @@ void CBlock::UpdateTime(const CBlockIndex* pindexPrev)
     if (fTestNet)
         nBits = GetNextWorkRequired(pindexPrev, this);
 }
-
-
-
-
-
-
-
-
-
-
 
 bool CTransaction::DisconnectInputs(CTxDB& txdb)
 {
