@@ -152,12 +152,6 @@ void static ResendWalletTransactions()
         pwallet->ResendWalletTransactions();
 }
 
-
-
-
-
-
-
 //////////////////////////////////////////////////////////////////////////////
 //
 // mapOrphanTransactions
@@ -826,14 +820,110 @@ uint256 static GetOrphanRoot(const CBlock* pblock)
     return pblock->GetHash();
 }
 
+static const int64 nGenesisBlockRewardCoin = 1 * COIN;
+
 int64 static GetBlockValue(int nHeight, int64 nFees)
 {
-    int64 nSubsidy = 1 * COIN;
+	// If the genesis block has been mined out
+    if (nHeight == 0)
+    {
+        return nGenesisBlockRewardCoin;
+    }
 
+    int64 nSubsidy = 420 * COIN;
+	
+    if(nHeight <= 8000)
+    {
+		nSubsidy = 380000 * COIN;
+    }
+    else if(nHeight <= 16000)
+    {
+		nSubsidy = 190000 * COIN;
+    }
+    else if(nHeight <= 32000)
+    {
+     	nSubsidy = 95000 * COIN;
+    }
+    else if(nHeight <= 48000)
+    {
+		nSubsidy = 45000 * COIN;
+    }
+    else if(nHeight <= 64000)
+    {
+		nSubsidy = 23750 * COIN;
+    }
+	else if(nHeight <= 80000)
+    {
+		nSubsidy = 11875 * COIN;
+    }
+	else if(nHeight <= 120000)
+    {
+		nSubsidy = 5937 * COIN;
+    }
+	else if(nHeight <= 180000)
+    {
+		nSubsidy = 2968 * COIN;
+    }
+	else if(nHeight <= 280000)
+    {
+		nSubsidy = 1484 * COIN;
+    }
+	else if(nHeight <= 380000)
+    {
+		nSubsidy = 742 * COIN;
+    }
+	else if(nHeight <= 480000)
+    {
+		nSubsidy = 371 * COIN;
+    }
+	
+	//Crazy 8 Block rewards
+	if(nHeight == 8)
+	{
+		nSubsidy= 83902224 * COIN;
+	}
+	if(nHeight == 88)
+	{
+		nSubsidy= 83902222 * COIN;
+	}
+	if(nHeight == 888)
+	{
+		nSubsidy= 83902222 * COIN;
+	}
+	if(nHeight == 8888)
+	{
+		nSubsidy= 83902222 * COIN;
+	}
+	if(nHeight == 88888)
+	{
+		nSubsidy= 83902222 * COIN;
+	}
+	if(nHeight == 888888)
+	{
+		nSubsidy= 83902222 * COIN;
+	}
+	if(nHeight == 8888888)
+	{
+		nSubsidy= 83902222 * COIN;
+	}
+	if(nHeight == 88888888)
+	{
+		nSubsidy= 83902222 * COIN;
+	}
+	if(nHeight == 88888888)
+	{
+		nSubsidy= 83902222 * COIN;
+	}
+	/* No inflation
+    else
+    {
+		nSubsidy = 1563 * COIN;
+    }
+	 */
     return nSubsidy + nFees;
 }
 
-static const int64 nTargetTimespan = 1 * 24 * 60 * 60; // Dv8Coin: 1 days
+static const int64 nTargetTimespan = 1 * 1 * 60 * 60; // Dv8Coin: 1 hour retarget time
 static const int64 nTargetSpacing = 120; // Dv8Coin: 2 minute blocks
 static const int64 nInterval = nTargetTimespan / nTargetSpacing;
 
@@ -1009,16 +1099,6 @@ void CBlock::UpdateTime(const CBlockIndex* pindexPrev)
         nBits = GetNextWorkRequired(pindexPrev, this);
 }
 
-
-
-
-
-
-
-
-
-
-
 bool CTransaction::DisconnectInputs(CTxDB& txdb)
 {
     // Relinquish previous transactions' spent pointers
@@ -1053,7 +1133,6 @@ bool CTransaction::DisconnectInputs(CTxDB& txdb)
 
     return true;
 }
-
 
 bool CTransaction::FetchInputs(CTxDB& txdb, const map<uint256, CTxIndex>& mapTestPool,
                                bool fBlock, bool fMiner, MapPrevTx& inputsRet, bool& fInvalid)
@@ -1264,7 +1343,6 @@ bool CTransaction::ConnectInputs(MapPrevTx inputs,
     return true;
 }
 
-
 bool CTransaction::ClientConnectInputs()
 {
     if (IsCoinBase())
@@ -1310,9 +1388,6 @@ bool CTransaction::ClientConnectInputs()
 
     return true;
 }
-
-
-
 
 bool CBlock::DisconnectBlock(CTxDB& txdb, CBlockIndex* pindex)
 {
@@ -1531,7 +1606,6 @@ bool static Reorganize(CTxDB& txdb, CBlockIndex* pindexNew)
     return true;
 }
 
-
 // Called from inside SetBestChain: attaches a block to the new best chain being built
 bool CBlock::SetBestChainInner(CTxDB& txdb, CBlockIndex *pindexNew)
 {
@@ -1670,7 +1744,6 @@ bool CBlock::SetBestChain(CTxDB& txdb, CBlockIndex* pindexNew)
     return true;
 }
 
-
 bool CBlock::AddToBlockIndex(unsigned int nFile, unsigned int nBlockPos)
 {
     // Check for duplicate
@@ -1717,9 +1790,6 @@ bool CBlock::AddToBlockIndex(unsigned int nFile, unsigned int nBlockPos)
     uiInterface.NotifyBlocksChanged();
     return true;
 }
-
-
-
 
 bool CBlock::CheckBlock() const
 {
@@ -1865,7 +1935,6 @@ bool ProcessBlock(CNode* pfrom, CBlock* pblock)
         }
     }
 
-
     // If don't already have its previous block, shunt it off to holding area until we get it
     if (!mapBlockIndex.count(pblock->hashPrevBlock))
     {
@@ -1906,13 +1975,6 @@ bool ProcessBlock(CNode* pfrom, CBlock* pblock)
     printf("ProcessBlock: ACCEPTED\n");
     return true;
 }
-
-
-
-
-
-
-
 
 bool CheckDiskSpace(uint64 nAdditionalBytes)
 {
@@ -1981,7 +2043,7 @@ bool LoadBlockIndex(bool fAllowNew)
         pchMessageStart[1] = 0xc0;
         pchMessageStart[2] = 0xb8;
         pchMessageStart[3] = 0xdb;
-        hashGenesisBlock = uint256("0x");
+        hashGenesisBlock = uint256("0x92451112cec11b61488a409a366cab70d4fe3a69dff613bbc3a980701000f501");
     }
 
     //
@@ -1999,10 +2061,9 @@ bool LoadBlockIndex(bool fAllowNew)
     {
         if (!fAllowNew)
             return false;
-    
         
         // Genesis block
-        const char* pszTimestamp = "Traditionally one puts something timely here coinciding with the epoch";
+        const char* pszTimestamp = "Facebook Buying Oculus Virtual-Reality Company for $2 Billion";
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -2014,21 +2075,21 @@ bool LoadBlockIndex(bool fAllowNew)
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1300000000; //epochtime
+        block.nTime    = 1395899537; //epochtime
         block.nBits    = 0x1e0ffff0;
         block.nNonce   = 0;
 
         if (fTestNet)
         {
-            block.nTime    = 1300000000;
-            block.nNonce   = 0;
+            block.nTime    = 1395899537;
+            block.nNonce   = 314450;
         }
 
         //// debug print
         printf("%s\n", block.GetHash().ToString().c_str());
         printf("%s\n", hashGenesisBlock.ToString().c_str());
         printf("%s\n", block.hashMerkleRoot.ToString().c_str());
-        assert(block.hashMerkleRoot == uint256("0x"));
+        assert(block.hashMerkleRoot == uint256("0x5244b23e33673adb74d2f8984a6d4feb7b9ef89395b39ed05049c9f36ac1fc6d"));
 
         // If genesis block hash does not match, then generate new genesis hash.
         if (true && block.GetHash() != hashGenesisBlock)
@@ -2075,8 +2136,6 @@ bool LoadBlockIndex(bool fAllowNew)
 
     return true;
 }
-
-
 
 void PrintBlockTree()
 {
@@ -2208,14 +2267,6 @@ bool LoadExternalBlockFile(FILE* fileIn)
     return nLoaded > 0;
 }
 
-
-
-
-
-
-
-
-
 //////////////////////////////////////////////////////////////////////////////
 //
 // CAlert
@@ -2331,18 +2382,10 @@ bool CAlert::ProcessAlert()
     return true;
 }
 
-
-
-
-
-
-
-
 //////////////////////////////////////////////////////////////////////////////
 //
 // Messages
 //
-
 
 bool static AlreadyHave(CTxDB& txdb, const CInv& inv)
 {
@@ -2368,14 +2411,10 @@ bool static AlreadyHave(CTxDB& txdb, const CInv& inv)
     return true;
 }
 
-
-
-
 // The message start string is designed to be unlikely to occur in normal data.
 // The characters are rarely used upper ascii, not valid as UTF-8, and produce
 // a large 4-byte int at any alignment.
 unsigned char pchMessageStart[4] = { 0xfc, 0xd9, 0xb7, 0xdd };
-
 
 bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
 {
@@ -2388,10 +2427,6 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
         printf("dropmessagestest DROPPING RECV MESSAGE\n");
         return true;
     }
-
-
-
-
 
     if (strCommand == "version")
     {
@@ -2501,7 +2536,6 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
         cPeerBlockCounts.input(pfrom->nStartingHeight);
     }
 
-
     else if (pfrom->nVersion == 0)
     {
         // Must have a version message before anything else
@@ -2509,12 +2543,10 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
         return false;
     }
 
-
     else if (strCommand == "verack")
     {
         pfrom->vRecv.SetVersion(min(pfrom->nVersion, PROTOCOL_VERSION));
     }
-
 
     else if (strCommand == "addr")
     {
@@ -2582,7 +2614,6 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
             pfrom->fDisconnect = true;
     }
 
-
     else if (strCommand == "inv")
     {
         vector<CInv> vInv;
@@ -2632,7 +2663,6 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
             Inventory(inv.hash);
         }
     }
-
 
     else if (strCommand == "getdata")
     {
@@ -2693,7 +2723,6 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
         }
     }
 
-
     else if (strCommand == "getblocks")
     {
         CBlockLocator locator;
@@ -2726,7 +2755,6 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
             }
         }
     }
-
 
     else if (strCommand == "getheaders")
     {
@@ -2762,7 +2790,6 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
         }
         pfrom->PushMessage("headers", vHeaders);
     }
-
 
     else if (strCommand == "tx")
     {
@@ -2832,7 +2859,6 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
         if (tx.nDoS) pfrom->Misbehaving(tx.nDoS);
     }
 
-
     else if (strCommand == "block")
     {
         CBlock block;
@@ -2849,7 +2875,6 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
         if (block.nDoS) pfrom->Misbehaving(block.nDoS);
     }
 
-
     else if (strCommand == "getaddr")
     {
         pfrom->vAddrToSend.clear();
@@ -2857,7 +2882,6 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
         BOOST_FOREACH(const CAddress &addr, vAddr)
             pfrom->PushAddress(addr);
     }
-
 
     else if (strCommand == "checkorder")
     {
@@ -2885,7 +2909,6 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
         pfrom->PushMessage("reply", hashReply, (int)0, scriptPubKey);
     }
 
-
     else if (strCommand == "reply")
     {
         uint256 hashReply;
@@ -2904,7 +2927,6 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
         if (!tracker.IsNull())
             tracker.fn(tracker.param1, vRecv);
     }
-
 
     else if (strCommand == "ping")
     {
@@ -2927,7 +2949,6 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
         }
     }
 
-
     else if (strCommand == "alert")
     {
         CAlert alert;
@@ -2945,19 +2966,16 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
         }
     }
 
-
     else
     {
         // Ignore unknown commands for extensibility
     }
 
-
     // Update the last seen time for this node's address
     if (pfrom->fNetworkNode)
         if (strCommand == "version" || strCommand == "addr" || strCommand == "inv" || strCommand == "getdata" || strCommand == "ping")
             AddressCurrentlyConnected(pfrom->addr);
-
-
+			
     return true;
 }
 
@@ -3081,7 +3099,6 @@ bool ProcessMessages(CNode* pfrom)
     vRecv.Compact();
     return true;
 }
-
 
 bool SendMessages(CNode* pto, bool fSendTrickle)
 {
@@ -3243,19 +3260,6 @@ bool SendMessages(CNode* pto, bool fSendTrickle)
     return true;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 //////////////////////////////////////////////////////////////////////////////
 //
 // BitcoinMiner
@@ -3351,7 +3355,6 @@ public:
             printf("   setDependsOn %s\n", hash.ToString().substr(0,10).c_str());
     }
 };
-
 
 uint64 nLastBlockTx = 0;
 uint64 nLastBlockSize = 0;
@@ -3527,7 +3530,6 @@ CBlock* CreateNewBlock(CReserveKey& reservekey)
     return pblock.release();
 }
 
-
 void IncrementExtraNonce(CBlock* pblock, CBlockIndex* pindexPrev, unsigned int& nExtraNonce)
 {
     // Update nExtraNonce
@@ -3543,7 +3545,6 @@ void IncrementExtraNonce(CBlock* pblock, CBlockIndex* pindexPrev, unsigned int& 
 
     pblock->hashMerkleRoot = pblock->BuildMerkleTree();
 }
-
 
 void FormatHashBuffers(CBlock* pblock, char* pmidstate, char* pdata, char* phash1)
 {
@@ -3589,7 +3590,6 @@ void FormatHashBuffers(CBlock* pblock, char* pmidstate, char* pdata, char* phash
     memcpy(pdata, &tmp.block, 128);
     memcpy(phash1, &tmp.hash1, 64);
 }
-
 
 bool CheckWork(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
 {
@@ -3658,8 +3658,7 @@ void static BitcoinMiner(CWallet *pwallet)
             if (!fGenerateBitcoins)
                 return;
         }
-
-
+		
         //
         // Create new block
         //
@@ -3673,7 +3672,6 @@ void static BitcoinMiner(CWallet *pwallet)
 
         printf("Running BitcoinMiner with %d transactions in block\n", pblock->vtx.size());
 
-
         //
         // Prebuild hash buffers
         //
@@ -3686,7 +3684,6 @@ void static BitcoinMiner(CWallet *pwallet)
         unsigned int& nBlockTime = *(unsigned int*)(pdata + 64 + 4);
         unsigned int& nBlockBits = *(unsigned int*)(pdata + 64 + 8);
         //unsigned int& nBlockNonce = *(unsigned int*)(pdata + 64 + 12);
-
 
         //
         // Search
@@ -3799,7 +3796,6 @@ void static ThreadBitcoinMiner(void* parg)
         dHashesPerSec = 0;
     printf("ThreadBitcoinMiner exiting, %d threads remaining\n", vnThreadsRunning[THREAD_MINER]);
 }
-
 
 void GenerateBitcoins(bool fGenerate, CWallet* pwallet)
 {
