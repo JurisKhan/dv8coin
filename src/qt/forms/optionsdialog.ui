@@ -19,6 +19,11 @@
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QTabWidget" name="tabWidget">
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+      </font>
+     </property>
      <property name="tabPosition">
       <enum>QTabWidget::North</enum>
      </property>
@@ -118,6 +123,11 @@
       <layout class="QVBoxLayout" name="verticalLayout_Network">
        <item>
         <widget class="QCheckBox" name="mapPortUpnp">
+         <property name="font">
+          <font>
+           <family>Segoe UI</family>
+          </font>
+         </property>
          <property name="toolTip">
           <string>Automatically open the Dv8Coin client port on the router. This only works when your router supports UPnP and it is enabled.</string>
          </property>
@@ -128,6 +138,11 @@
        </item>
        <item>
         <widget class="QCheckBox" name="connectSocks">
+         <property name="font">
+          <font>
+           <family>Segoe UI</family>
+          </font>
+         </property>
          <property name="toolTip">
           <string>Connect to the Dv8Coin network through a SOCKS proxy (e.g. when connecting through Tor).</string>
          </property>
@@ -140,6 +155,11 @@
         <layout class="QHBoxLayout" name="horizontalLayout_Network">
          <item>
           <widget class="QLabel" name="proxyIpLabel">
+           <property name="font">
+            <font>
+             <family>Segoe UI</family>
+            </font>
+           </property>
            <property name="text">
             <string>Proxy &amp;IP:</string>
            </property>
@@ -159,6 +179,11 @@
              <height>16777215</height>
             </size>
            </property>
+           <property name="font">
+            <font>
+             <family>Segoe UI</family>
+            </font>
+           </property>
            <property name="toolTip">
             <string>IP address of the proxy (e.g. 127.0.0.1)</string>
            </property>
@@ -166,6 +191,11 @@
          </item>
          <item>
           <widget class="QLabel" name="proxyPortLabel">
+           <property name="font">
+            <font>
+             <family>Segoe UI</family>
+            </font>
+           </property>
            <property name="text">
             <string>&amp;Port:</string>
            </property>
@@ -185,6 +215,11 @@
              <height>16777215</height>
             </size>
            </property>
+           <property name="font">
+            <font>
+             <family>Segoe UI</family>
+            </font>
+           </property>
            <property name="toolTip">
             <string>Port of the proxy (e.g. 9050)</string>
            </property>
@@ -192,6 +227,11 @@
          </item>
          <item>
           <widget class="QLabel" name="socksVersionLabel">
+           <property name="font">
+            <font>
+             <family>Segoe UI</family>
+            </font>
+           </property>
            <property name="text">
             <string>SOCKS &amp;Version:</string>
            </property>
@@ -205,6 +245,11 @@
          </item>
          <item>
           <widget class="QValueComboBox" name="socksVersion">
+           <property name="font">
+            <font>
+             <family>Segoe UI</family>
+            </font>
+           </property>
            <property name="toolTip">
             <string>SOCKS version of the proxy (e.g. 5)</string>
            </property>
@@ -212,6 +257,11 @@
          </item>
          <item>
           <spacer name="horizontalSpacer_Network">
+           <property name="font">
+            <font>
+             <family>Segoe UI</family>
+            </font>
+           </property>
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
@@ -227,6 +277,11 @@
        </item>
        <item>
         <spacer name="verticalSpacer_Network">
+         <property name="font">
+          <font>
+           <family>Segoe UI</family>
+          </font>
+         </property>
          <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
@@ -364,6 +419,11 @@
     <layout class="QHBoxLayout" name="horizontalLayout_Buttons">
      <item>
       <spacer name="horizontalSpacer_1">
+       <property name="font">
+        <font>
+         <family>Segoe UI</family>
+        </font>
+       </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -379,6 +439,7 @@
       <widget class="QLabel" name="statusLabel">
        <property name="font">
         <font>
+         <family>Segoe UI</family>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -396,6 +457,11 @@
      </item>
      <item>
       <spacer name="horizontalSpacer_2">
+       <property name="font">
+        <font>
+         <family>Segoe UI</family>
+        </font>
+       </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -409,6 +475,11 @@
      </item>
      <item>
       <widget class="QPushButton" name="okButton">
+       <property name="font">
+        <font>
+         <family>Segoe UI</family>
+        </font>
+       </property>
        <property name="text">
         <string>&amp;OK</string>
        </property>
@@ -416,6 +487,11 @@
      </item>
      <item>
       <widget class="QPushButton" name="cancelButton">
+       <property name="font">
+        <font>
+         <family>Segoe UI</family>
+        </font>
+       </property>
        <property name="text">
         <string>&amp;Cancel</string>
        </property>
@@ -426,6 +502,11 @@
      </item>
      <item>
       <widget class="QPushButton" name="applyButton">
+       <property name="font">
+        <font>
+         <family>Segoe UI</family>
+        </font>
+       </property>
        <property name="text">
         <string>&amp;Apply</string>
        </property>
