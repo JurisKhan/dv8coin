@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'miningpage.ui'
 **
-** Created: Thu Mar 27 18:03:03 2014
+** Created: Sat Mar 29 19:32:37 2014
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -32,18 +32,17 @@ class Ui_MiningPage
 {
 public:
     QGridLayout *gridLayout;
-    QLineEdit *serverLine;
-    QLabel *usernameLabel;
+    QLabel *passwordLabel;
     QLabel *serverLabel;
     QLineEdit *usernameLine;
-    QLabel *passwordLabel;
+    QLineEdit *serverLine;
+    QLabel *usernameLabel;
     QLabel *portLabel;
     QPushButton *startButton;
     QFrame *line;
     QListWidget *list;
     QLabel *shareCount;
     QLabel *scantimeLabel;
-    QLabel *threadsLabel;
     QCheckBox *debugCheckBox;
     QLabel *typeLabel;
     QSpinBox *threadsBox;
@@ -52,50 +51,63 @@ public:
     QLineEdit *portLine;
     QLineEdit *passwordLine;
     QLabel *mineSpeedLabel;
+    QLabel *threadsLabel;
 
     void setupUi(QWidget *MiningPage)
     {
         if (MiningPage->objectName().isEmpty())
             MiningPage->setObjectName(QString::fromUtf8("MiningPage"));
         MiningPage->resize(780, 636);
+        MiningPage->setStyleSheet(QString::fromUtf8("background-color:#04648A;\n"
+"color:white;"));
         gridLayout = new QGridLayout(MiningPage);
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         gridLayout->setSizeConstraint(QLayout::SetMaximumSize);
-        serverLine = new QLineEdit(MiningPage);
-        serverLine->setObjectName(QString::fromUtf8("serverLine"));
-        serverLine->setEnabled(true);
+        passwordLabel = new QLabel(MiningPage);
+        passwordLabel->setObjectName(QString::fromUtf8("passwordLabel"));
+        passwordLabel->setEnabled(true);
+        QFont font;
+        font.setFamily(QString::fromUtf8("Segoe UI"));
+        passwordLabel->setFont(font);
 
-        gridLayout->addWidget(serverLine, 7, 1, 1, 1);
-
-        usernameLabel = new QLabel(MiningPage);
-        usernameLabel->setObjectName(QString::fromUtf8("usernameLabel"));
-        usernameLabel->setEnabled(true);
-
-        gridLayout->addWidget(usernameLabel, 6, 3, 1, 1);
+        gridLayout->addWidget(passwordLabel, 6, 4, 1, 1);
 
         serverLabel = new QLabel(MiningPage);
         serverLabel->setObjectName(QString::fromUtf8("serverLabel"));
         serverLabel->setEnabled(true);
+        serverLabel->setFont(font);
 
         gridLayout->addWidget(serverLabel, 6, 1, 1, 1);
 
         usernameLine = new QLineEdit(MiningPage);
         usernameLine->setObjectName(QString::fromUtf8("usernameLine"));
         usernameLine->setEnabled(true);
+        usernameLine->setFont(font);
+        usernameLine->setStyleSheet(QString::fromUtf8("border: 1px solid #022840;"));
 
         gridLayout->addWidget(usernameLine, 7, 3, 1, 1);
 
-        passwordLabel = new QLabel(MiningPage);
-        passwordLabel->setObjectName(QString::fromUtf8("passwordLabel"));
-        passwordLabel->setEnabled(true);
+        serverLine = new QLineEdit(MiningPage);
+        serverLine->setObjectName(QString::fromUtf8("serverLine"));
+        serverLine->setEnabled(true);
+        serverLine->setFont(font);
+        serverLine->setStyleSheet(QString::fromUtf8("border: 1px solid #022840;"));
 
-        gridLayout->addWidget(passwordLabel, 6, 4, 1, 1);
+        gridLayout->addWidget(serverLine, 7, 1, 1, 1);
+
+        usernameLabel = new QLabel(MiningPage);
+        usernameLabel->setObjectName(QString::fromUtf8("usernameLabel"));
+        usernameLabel->setEnabled(true);
+        usernameLabel->setFont(font);
+
+        gridLayout->addWidget(usernameLabel, 6, 3, 1, 1);
 
         portLabel = new QLabel(MiningPage);
         portLabel->setObjectName(QString::fromUtf8("portLabel"));
         portLabel->setEnabled(true);
+        portLabel->setFont(font);
 
         gridLayout->addWidget(portLabel, 6, 2, 1, 1);
 
@@ -106,6 +118,7 @@ public:
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(startButton->sizePolicy().hasHeightForWidth());
         startButton->setSizePolicy(sizePolicy);
+        startButton->setFont(font);
 
         gridLayout->addWidget(startButton, 3, 4, 1, 1);
 
@@ -117,6 +130,7 @@ public:
         sizePolicy1.setHeightForWidth(line->sizePolicy().hasHeightForWidth());
         line->setSizePolicy(sizePolicy1);
         line->setMinimumSize(QSize(0, 20));
+        line->setFont(font);
         line->setFrameShape(QFrame::HLine);
         line->setFrameShadow(QFrame::Sunken);
 
@@ -124,6 +138,8 @@ public:
 
         list = new QListWidget(MiningPage);
         list->setObjectName(QString::fromUtf8("list"));
+        list->setFont(font);
+        list->setStyleSheet(QString::fromUtf8("border: 1px solid #022840;"));
         list->setAutoScrollMargin(100000);
         list->setDragDropMode(QAbstractItemView::DragOnly);
         list->setSelectionMode(QAbstractItemView::NoSelection);
@@ -134,40 +150,40 @@ public:
 
         shareCount = new QLabel(MiningPage);
         shareCount->setObjectName(QString::fromUtf8("shareCount"));
-        QFont font;
-        font.setPointSize(10);
-        font.setBold(true);
-        font.setWeight(75);
-        shareCount->setFont(font);
+        QFont font1;
+        font1.setFamily(QString::fromUtf8("Segoe UI"));
+        font1.setPointSize(10);
+        font1.setBold(true);
+        font1.setWeight(75);
+        shareCount->setFont(font1);
 
         gridLayout->addWidget(shareCount, 14, 1, 1, 2);
 
         scantimeLabel = new QLabel(MiningPage);
         scantimeLabel->setObjectName(QString::fromUtf8("scantimeLabel"));
         scantimeLabel->setEnabled(true);
+        scantimeLabel->setFont(font);
         scantimeLabel->setLayoutDirection(Qt::LeftToRight);
 
         gridLayout->addWidget(scantimeLabel, 3, 3, 1, 1);
 
-        threadsLabel = new QLabel(MiningPage);
-        threadsLabel->setObjectName(QString::fromUtf8("threadsLabel"));
-        threadsLabel->setEnabled(true);
-
-        gridLayout->addWidget(threadsLabel, 3, 2, 1, 1);
-
         debugCheckBox = new QCheckBox(MiningPage);
         debugCheckBox->setObjectName(QString::fromUtf8("debugCheckBox"));
+        debugCheckBox->setFont(font);
 
         gridLayout->addWidget(debugCheckBox, 4, 4, 1, 1);
 
         typeLabel = new QLabel(MiningPage);
         typeLabel->setObjectName(QString::fromUtf8("typeLabel"));
+        typeLabel->setFont(font);
 
         gridLayout->addWidget(typeLabel, 3, 1, 1, 1);
 
         threadsBox = new QSpinBox(MiningPage);
         threadsBox->setObjectName(QString::fromUtf8("threadsBox"));
         threadsBox->setEnabled(true);
+        threadsBox->setFont(font);
+        threadsBox->setStyleSheet(QString::fromUtf8("border: 1px solid #022840;"));
         threadsBox->setMinimum(1);
         threadsBox->setMaximum(99);
         threadsBox->setSingleStep(1);
@@ -176,6 +192,8 @@ public:
 
         typeBox = new QComboBox(MiningPage);
         typeBox->setObjectName(QString::fromUtf8("typeBox"));
+        typeBox->setFont(font);
+        typeBox->setStyleSheet(QString::fromUtf8("border: 1px solid #022840;"));
         typeBox->setEditable(false);
 
         gridLayout->addWidget(typeBox, 4, 1, 1, 1);
@@ -183,6 +201,8 @@ public:
         scantimeBox = new QSpinBox(MiningPage);
         scantimeBox->setObjectName(QString::fromUtf8("scantimeBox"));
         scantimeBox->setEnabled(true);
+        scantimeBox->setFont(font);
+        scantimeBox->setStyleSheet(QString::fromUtf8("border: 1px solid #022840;"));
         scantimeBox->setMinimum(1);
         scantimeBox->setValue(5);
 
@@ -191,6 +211,8 @@ public:
         portLine = new QLineEdit(MiningPage);
         portLine->setObjectName(QString::fromUtf8("portLine"));
         portLine->setEnabled(true);
+        portLine->setFont(font);
+        portLine->setStyleSheet(QString::fromUtf8("border: 1px solid #022840;"));
         portLine->setProperty("value", QVariant(9332));
 
         gridLayout->addWidget(portLine, 7, 2, 1, 1);
@@ -198,6 +220,8 @@ public:
         passwordLine = new QLineEdit(MiningPage);
         passwordLine->setObjectName(QString::fromUtf8("passwordLine"));
         passwordLine->setEnabled(true);
+        passwordLine->setFont(font);
+        passwordLine->setStyleSheet(QString::fromUtf8("border: 1px solid #022840;"));
 
         gridLayout->addWidget(passwordLine, 7, 4, 1, 1);
 
@@ -208,10 +232,17 @@ public:
         sizePolicy2.setVerticalStretch(0);
         sizePolicy2.setHeightForWidth(mineSpeedLabel->sizePolicy().hasHeightForWidth());
         mineSpeedLabel->setSizePolicy(sizePolicy2);
-        mineSpeedLabel->setFont(font);
+        mineSpeedLabel->setFont(font1);
         mineSpeedLabel->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
         gridLayout->addWidget(mineSpeedLabel, 14, 3, 1, 2);
+
+        threadsLabel = new QLabel(MiningPage);
+        threadsLabel->setObjectName(QString::fromUtf8("threadsLabel"));
+        threadsLabel->setEnabled(true);
+        threadsLabel->setFont(font);
+
+        gridLayout->addWidget(threadsLabel, 3, 2, 1, 1);
 
         QWidget::setTabOrder(startButton, typeBox);
         QWidget::setTabOrder(typeBox, threadsBox);
@@ -234,15 +265,14 @@ public:
     void retranslateUi(QWidget *MiningPage)
     {
         MiningPage->setWindowTitle(QApplication::translate("MiningPage", "Mining", 0, QApplication::UnicodeUTF8));
-        usernameLabel->setText(QApplication::translate("MiningPage", "Username", 0, QApplication::UnicodeUTF8));
-        serverLabel->setText(QApplication::translate("MiningPage", "Server", 0, QApplication::UnicodeUTF8));
+        passwordLabel->setText(QApplication::translate("MiningPage", "Worker Password", 0, QApplication::UnicodeUTF8));
+        serverLabel->setText(QApplication::translate("MiningPage", "Server Address", 0, QApplication::UnicodeUTF8));
         usernameLine->setText(QString());
-        passwordLabel->setText(QApplication::translate("MiningPage", "Password", 0, QApplication::UnicodeUTF8));
+        usernameLabel->setText(QApplication::translate("MiningPage", "Worker.Name", 0, QApplication::UnicodeUTF8));
         portLabel->setText(QApplication::translate("MiningPage", "Port", 0, QApplication::UnicodeUTF8));
         startButton->setText(QApplication::translate("MiningPage", "Start Mining", 0, QApplication::UnicodeUTF8));
         shareCount->setText(QString());
         scantimeLabel->setText(QApplication::translate("MiningPage", "Scantime", 0, QApplication::UnicodeUTF8));
-        threadsLabel->setText(QApplication::translate("MiningPage", "Threads", 0, QApplication::UnicodeUTF8));
         debugCheckBox->setText(QApplication::translate("MiningPage", "Debug Logging", 0, QApplication::UnicodeUTF8));
         typeLabel->setText(QApplication::translate("MiningPage", "Type", 0, QApplication::UnicodeUTF8));
         typeBox->clear();
@@ -252,6 +282,7 @@ public:
         );
         portLine->setText(QApplication::translate("MiningPage", "9332", 0, QApplication::UnicodeUTF8));
         mineSpeedLabel->setText(QString());
+        threadsLabel->setText(QApplication::translate("MiningPage", "CPU Threads", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

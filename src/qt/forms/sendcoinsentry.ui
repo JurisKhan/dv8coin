@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:#04648A;
+color:white;</string>
+  </property>
   <property name="frameShape">
    <enum>QFrame::StyledPanel</enum>
   </property>
@@ -66,6 +70,9 @@
        <family>Segoe UI</family>
       </font>
      </property>
+     <property name="styleSheet">
+      <string notr="true">border: 1px solid #022840;</string>
+     </property>
     </widget>
    </item>
    <item row="4" column="1">
@@ -85,6 +92,9 @@
        </property>
        <property name="toolTip">
         <string>Enter a label for this address to add it to your address book</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 1px solid #022840;</string>
        </property>
       </widget>
      </item>
@@ -122,6 +132,9 @@
        </property>
        <property name="toolTip">
         <string>The address to send the payment to  (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border: 1px solid #022840;</string>
        </property>
        <property name="maxLength">
         <number>34</number>

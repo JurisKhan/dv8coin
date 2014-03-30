@@ -7,11 +7,15 @@
     <x>0</x>
     <y>0</y>
     <width>340</width>
-    <height>530</height>
+    <height>548</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>QR Code Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:#04648A;
+color:white;</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>

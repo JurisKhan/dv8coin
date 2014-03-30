@@ -77,6 +77,7 @@ private:
 
     QMenuBar *appMenuBar;
     QAction *overviewAction;
+    QAction *blankAction;
     QAction *miningAction;
     QAction *historyAction;
     QAction *quitAction;

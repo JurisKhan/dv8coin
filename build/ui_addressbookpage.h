@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'addressbookpage.ui'
 **
-** Created: Thu Mar 27 18:03:03 2014
+** Created: Sat Mar 29 19:32:37 2014
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -46,11 +46,16 @@ public:
     {
         if (AddressBookPage->objectName().isEmpty())
             AddressBookPage->setObjectName(QString::fromUtf8("AddressBookPage"));
-        AddressBookPage->resize(760, 380);
+        AddressBookPage->resize(842, 380);
+        AddressBookPage->setStyleSheet(QString::fromUtf8("background-color:#04648A;\n"
+"color:white;"));
         verticalLayout = new QVBoxLayout(AddressBookPage);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         labelExplanation = new QLabel(AddressBookPage);
         labelExplanation->setObjectName(QString::fromUtf8("labelExplanation"));
+        QFont font;
+        font.setFamily(QString::fromUtf8("Segoe UI"));
+        labelExplanation->setFont(font);
         labelExplanation->setTextFormat(Qt::PlainText);
         labelExplanation->setWordWrap(true);
 
@@ -58,9 +63,10 @@ public:
 
         tableView = new QTableView(AddressBookPage);
         tableView->setObjectName(QString::fromUtf8("tableView"));
+        tableView->setFont(font);
         tableView->setContextMenuPolicy(Qt::CustomContextMenu);
         tableView->setTabKeyNavigation(false);
-        tableView->setAlternatingRowColors(true);
+        tableView->setAlternatingRowColors(false);
         tableView->setSelectionMode(QAbstractItemView::SingleSelection);
         tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
         tableView->setSortingEnabled(true);
@@ -72,6 +78,8 @@ public:
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         newAddressButton = new QPushButton(AddressBookPage);
         newAddressButton->setObjectName(QString::fromUtf8("newAddressButton"));
+        newAddressButton->setFont(font);
+        newAddressButton->setStyleSheet(QString::fromUtf8("QPushButton:hover {color:#ADD8E6;} "));
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/icons/add"), QSize(), QIcon::Normal, QIcon::Off);
         newAddressButton->setIcon(icon);
@@ -80,6 +88,8 @@ public:
 
         copyToClipboard = new QPushButton(AddressBookPage);
         copyToClipboard->setObjectName(QString::fromUtf8("copyToClipboard"));
+        copyToClipboard->setFont(font);
+        copyToClipboard->setStyleSheet(QString::fromUtf8("QPushButton:hover {color:#ADD8E6;} "));
         QIcon icon1;
         icon1.addFile(QString::fromUtf8(":/icons/editcopy"), QSize(), QIcon::Normal, QIcon::Off);
         copyToClipboard->setIcon(icon1);
@@ -88,6 +98,8 @@ public:
 
         showQRCode = new QPushButton(AddressBookPage);
         showQRCode->setObjectName(QString::fromUtf8("showQRCode"));
+        showQRCode->setFont(font);
+        showQRCode->setStyleSheet(QString::fromUtf8("QToolButton:hover {color:#ADD8E6;} "));
         QIcon icon2;
         icon2.addFile(QString::fromUtf8(":/icons/qrcode"), QSize(), QIcon::Normal, QIcon::Off);
         showQRCode->setIcon(icon2);
@@ -96,6 +108,8 @@ public:
 
         signMessage = new QPushButton(AddressBookPage);
         signMessage->setObjectName(QString::fromUtf8("signMessage"));
+        signMessage->setFont(font);
+        signMessage->setStyleSheet(QString::fromUtf8("QToolButton:hover {color:#ADD8E6;} "));
         QIcon icon3;
         icon3.addFile(QString::fromUtf8(":/icons/edit"), QSize(), QIcon::Normal, QIcon::Off);
         signMessage->setIcon(icon3);
@@ -104,6 +118,8 @@ public:
 
         verifyMessage = new QPushButton(AddressBookPage);
         verifyMessage->setObjectName(QString::fromUtf8("verifyMessage"));
+        verifyMessage->setFont(font);
+        verifyMessage->setStyleSheet(QString::fromUtf8("QToolButton:hover {color:#ADD8E6;} "));
         QIcon icon4;
         icon4.addFile(QString::fromUtf8(":/icons/transaction_0"), QSize(), QIcon::Normal, QIcon::Off);
         verifyMessage->setIcon(icon4);
@@ -112,6 +128,8 @@ public:
 
         deleteButton = new QPushButton(AddressBookPage);
         deleteButton->setObjectName(QString::fromUtf8("deleteButton"));
+        deleteButton->setFont(font);
+        deleteButton->setStyleSheet(QString::fromUtf8("QToolButton:hover {color:#ADD8E6;} "));
         QIcon icon5;
         icon5.addFile(QString::fromUtf8(":/icons/remove"), QSize(), QIcon::Normal, QIcon::Off);
         deleteButton->setIcon(icon5);
@@ -129,6 +147,8 @@ public:
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(buttonBox->sizePolicy().hasHeightForWidth());
         buttonBox->setSizePolicy(sizePolicy);
+        buttonBox->setFont(font);
+        buttonBox->setStyleSheet(QString::fromUtf8("QToolButton:hover {color:#ADD8E6;} "));
         buttonBox->setStandardButtons(QDialogButtonBox::Ok);
 
         horizontalLayout->addWidget(buttonBox);
@@ -145,7 +165,7 @@ public:
     void retranslateUi(QWidget *AddressBookPage)
     {
         AddressBookPage->setWindowTitle(QApplication::translate("AddressBookPage", "Address Book", 0, QApplication::UnicodeUTF8));
-        labelExplanation->setText(QApplication::translate("AddressBookPage", "These are your Dv8Coin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.", 0, QApplication::UnicodeUTF8));
+        labelExplanation->setText(QApplication::translate("AddressBookPage", "These are your dv8coin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.", 0, QApplication::UnicodeUTF8));
 #ifndef QT_NO_TOOLTIP
         tableView->setToolTip(QApplication::translate("AddressBookPage", "Double-click to edit address or label", 0, QApplication::UnicodeUTF8));
 #endif // QT_NO_TOOLTIP

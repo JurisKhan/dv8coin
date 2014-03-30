@@ -70,9 +70,11 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     rpcConsole(0)
 {
     resize(850, 550);
-    setWindowTitle(tr("Dv8Coin") + " - " + tr("Wallet"));
+
+    setWindowTitle(tr("dv8coin") + " - " + tr("Wallet"));
 #ifndef Q_WS_MAC
     qApp->setWindowIcon(QIcon(":icons/bitcoin"));
+
     setWindowIcon(QIcon(":icons/bitcoin"));
 #else
     setUnifiedTitleAndToolBarOnMac(true);
@@ -80,6 +82,11 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
 #endif
     // Accept D&D of URIs
     setAcceptDrops(true);
+
+    // Some styling to make the wallet look better
+    this->setMaximumSize(850,550);
+    this->setMinimumSize(850,550);
+    this->setStyleSheet("background-color:#04648A; color:white; border-style: 1px solid #022840; QToolBar::QToolButton {border: 2px solid #8f8f91;border-radius: 6px;}");
 
     // Create actions for the toolbar, menu bar and tray/dock icon
     createActions();
@@ -199,6 +206,10 @@ void BitcoinGUI::createActions()
     overviewAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_1));
     tabGroup->addAction(overviewAction);
 
+    blankAction = new QAction(QIcon(""), tr(""), this);
+    tabGroup->addAction(blankAction);
+    blankAction->setText("");
+
     miningAction = new QAction(QIcon(":/icons/mining"), tr("&Mining"), this);
     miningAction->setToolTip(tr("Configure mining"));
     miningAction->setCheckable(true);
@@ -223,7 +234,7 @@ void BitcoinGUI::createActions()
     tabGroup->addAction(receiveCoinsAction);
 
     sendCoinsAction = new QAction(QIcon(":/icons/send"), tr("&Send coins"), this);
-    sendCoinsAction->setToolTip(tr("Send coins to a Dv8Coin address"));
+    sendCoinsAction->setToolTip(tr("Send coins to a dv8coin address"));
     sendCoinsAction->setCheckable(true);
     sendCoinsAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_2));
     tabGroup->addAction(sendCoinsAction);
@@ -268,17 +279,17 @@ void BitcoinGUI::createActions()
     quitAction->setToolTip(tr("Quit application"));
     quitAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Q));
     quitAction->setMenuRole(QAction::QuitRole);
-    aboutAction = new QAction(QIcon(":/icons/bitcoin"), tr("&About Dv8Coin"), this);
-    aboutAction->setToolTip(tr("Show information about Dv8Coin"));
+    aboutAction = new QAction(QIcon(":/icons/bitcoin"), tr("&About dv8coin"), this);
+    aboutAction->setToolTip(tr("Show information about dv8coin"));
     aboutAction->setMenuRole(QAction::AboutRole);
     aboutQtAction = new QAction(tr("About &Qt"), this);
     aboutQtAction->setToolTip(tr("Show information about Qt"));
     aboutQtAction->setMenuRole(QAction::AboutQtRole);
     optionsAction = new QAction(QIcon(":/icons/options"), tr("&Options..."), this);
-    optionsAction->setToolTip(tr("Modify configuration options for Dv8Coin"));
+    optionsAction->setToolTip(tr("Modify configuration options for dv8coin"));
     optionsAction->setMenuRole(QAction::PreferencesRole);
-    toggleHideAction = new QAction(QIcon(":/icons/bitcoin"), tr("Show/Hide &Dv8Coin"), this);
-    toggleHideAction->setToolTip(tr("Show or hide the Dv8Coin window"));
+    toggleHideAction = new QAction(QIcon(":/icons/bitcoin"), tr("Show/Hide &dv8coin"), this);
+    toggleHideAction->setToolTip(tr("Show or hide the dv8coin window"));
     exportAction = new QAction(QIcon(":/icons/export"), tr("&Export..."), this);
     exportAction->setToolTip(tr("Export the data in the current tab to a file"));
     encryptWalletAction = new QAction(QIcon(":/icons/lock_closed"), tr("&Encrypt Wallet..."), this);
@@ -337,21 +348,33 @@ void BitcoinGUI::createMenuBar()
 
 void BitcoinGUI::createToolBars()
 {
+
+
     QToolBar *toolbar = addToolBar(tr("Tabs toolbar"));
+    toolbar->setStyleSheet("QToolButton:hover {color:#ADD8E6;} ");
     toolbar->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+
     toolbar->addAction(overviewAction);
+    toolbar->addAction(blankAction);
+
     toolbar->addAction(sendCoinsAction);
+    toolbar->addAction(blankAction);
+
     toolbar->addAction(receiveCoinsAction);
+    toolbar->addAction(blankAction);
+
     toolbar->addAction(historyAction);
+    toolbar->addAction(blankAction);
+
     toolbar->addAction(addressBookAction);
+    toolbar->addAction(blankAction);
     toolbar->addAction(miningAction);
+    toolbar->addAction(blankAction);
+
+    toolbar->addAction(exportAction);
 #ifdef FIRST_CLASS_MESSAGING
     toolbar->addAction(firstClassMessagingAction);
 #endif
-
-    QToolBar *toolbar2 = addToolBar(tr("Actions toolbar"));
-    toolbar2->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-    toolbar2->addAction(exportAction);
 }
 
 void BitcoinGUI::setClientModel(ClientModel *clientModel)
@@ -371,7 +394,7 @@ void BitcoinGUI::setClientModel(ClientModel *clientModel)
 #endif
             if(trayIcon)
             {
-                trayIcon->setToolTip(tr("Dv8Coin client") + QString(" ") + tr("[testnet]"));
+                trayIcon->setToolTip(tr("dv8coin client") + QString(" ") + tr("[testnet]"));
                 trayIcon->setIcon(QIcon(":/icons/toolbar_testnet"));
                 toggleHideAction->setIcon(QIcon(":/icons/toolbar_testnet"));
             }
@@ -435,7 +458,7 @@ void BitcoinGUI::createTrayIcon()
     trayIcon = new QSystemTrayIcon(this);
     trayIconMenu = new QMenu(this);
     trayIcon->setContextMenu(trayIconMenu);
-    trayIcon->setToolTip(tr("Dv8Coin client"));
+    trayIcon->setToolTip(tr("dv8coin Wallet"));
     trayIcon->setIcon(QIcon(":/icons/toolbar"));
     connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)),
             this, SLOT(trayIconActivated(QSystemTrayIcon::ActivationReason)));
@@ -472,7 +495,7 @@ void BitcoinGUI::trayIconActivated(QSystemTrayIcon::ActivationReason reason)
 {
     if(reason == QSystemTrayIcon::Trigger)
     {
-        // Click on system tray icon triggers "show/hide Dv8Coin"
+        // Click on system tray icon triggers "show/hide dv8coin"
         toggleHideAction->trigger();
     }
 }
@@ -506,7 +529,7 @@ void BitcoinGUI::setNumConnections(int count)
     default: icon = ":/icons/connect_4"; break;
     }
     labelConnectionsIcon->setPixmap(QIcon(icon).pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
-    labelConnectionsIcon->setToolTip(tr("%n active connection(s) to Dv8Coin network", "", count));
+    labelConnectionsIcon->setToolTip(tr("%n active connection(s) to dv8coin network", "", count));
 }
 
 void BitcoinGUI::setNumBlocks(int count, int nTotalBlocks)
@@ -622,12 +645,12 @@ void BitcoinGUI::setMining(bool mining, int hashrate)
     if (mining)
     {
         labelMiningIcon->setPixmap(QIcon(":/icons/mining_active").pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
-        labelMiningIcon->setToolTip(tr("Mining Dv8Coin at %1 hashes per second").arg(hashrate));
+        labelMiningIcon->setToolTip(tr("Mining dv8coin at %1 hashes per second").arg(hashrate));
     }
     else
     {
         labelMiningIcon->setPixmap(QIcon(":/icons/mining_inactive").pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
-        labelMiningIcon->setToolTip(tr("Not mining Dv8Coin"));
+        labelMiningIcon->setToolTip(tr("Not mining dv8coin"));
     }
 }
 
@@ -842,7 +865,7 @@ void BitcoinGUI::dropEvent(QDropEvent *event)
         if (nValidUrisFound)
             gotoSendCoinsPage();
         else
-            notificator->notify(Notificator::Warning, tr("URI handling"), tr("URI can not be parsed! This can be caused by an invalid Dv8Coin address or malformed URI parameters."));
+            notificator->notify(Notificator::Warning, tr("URI handling"), tr("URI can not be parsed! This can be caused by an invalid dv8coin address or malformed URI parameters."));
     }
 
     event->acceptProposedAction();
@@ -857,7 +880,7 @@ void BitcoinGUI::handleURI(QString strURI)
         gotoSendCoinsPage();
     }
     else
-        notificator->notify(Notificator::Warning, tr("URI handling"), tr("URI can not be parsed! This can be caused by an invalid Dv8Coin address or malformed URI parameters."));
+        notificator->notify(Notificator::Warning, tr("URI handling"), tr("URI can not be parsed! This can be caused by an invalid dv8coin address or malformed URI parameters."));
 }
 
 void BitcoinGUI::setEncryptionStatus(int status)

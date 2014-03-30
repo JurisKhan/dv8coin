@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'askpassphrasedialog.ui'
 **
-** Created: Thu Mar 27 18:03:03 2014
+** Created: Sat Mar 29 19:32:37 2014
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -50,10 +50,15 @@ public:
         sizePolicy.setHeightForWidth(AskPassphraseDialog->sizePolicy().hasHeightForWidth());
         AskPassphraseDialog->setSizePolicy(sizePolicy);
         AskPassphraseDialog->setMinimumSize(QSize(550, 0));
+        AskPassphraseDialog->setStyleSheet(QString::fromUtf8("background-color:#04648A;\n"
+"color:white;"));
         verticalLayout = new QVBoxLayout(AskPassphraseDialog);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         warningLabel = new QLabel(AskPassphraseDialog);
         warningLabel->setObjectName(QString::fromUtf8("warningLabel"));
+        QFont font;
+        font.setFamily(QString::fromUtf8("Segoe UI"));
+        warningLabel->setFont(font);
         warningLabel->setTextFormat(Qt::RichText);
         warningLabel->setWordWrap(true);
 
@@ -64,43 +69,50 @@ public:
         formLayout->setFieldGrowthPolicy(QFormLayout::AllNonFixedFieldsGrow);
         passLabel1 = new QLabel(AskPassphraseDialog);
         passLabel1->setObjectName(QString::fromUtf8("passLabel1"));
+        passLabel1->setFont(font);
 
         formLayout->setWidget(0, QFormLayout::LabelRole, passLabel1);
 
         passEdit1 = new QLineEdit(AskPassphraseDialog);
         passEdit1->setObjectName(QString::fromUtf8("passEdit1"));
+        passEdit1->setFont(font);
         passEdit1->setEchoMode(QLineEdit::Password);
 
         formLayout->setWidget(0, QFormLayout::FieldRole, passEdit1);
 
         passLabel2 = new QLabel(AskPassphraseDialog);
         passLabel2->setObjectName(QString::fromUtf8("passLabel2"));
+        passLabel2->setFont(font);
 
         formLayout->setWidget(1, QFormLayout::LabelRole, passLabel2);
 
         passEdit2 = new QLineEdit(AskPassphraseDialog);
         passEdit2->setObjectName(QString::fromUtf8("passEdit2"));
+        passEdit2->setFont(font);
         passEdit2->setEchoMode(QLineEdit::Password);
 
         formLayout->setWidget(1, QFormLayout::FieldRole, passEdit2);
 
         passLabel3 = new QLabel(AskPassphraseDialog);
         passLabel3->setObjectName(QString::fromUtf8("passLabel3"));
+        passLabel3->setFont(font);
 
         formLayout->setWidget(2, QFormLayout::LabelRole, passLabel3);
 
         passEdit3 = new QLineEdit(AskPassphraseDialog);
         passEdit3->setObjectName(QString::fromUtf8("passEdit3"));
+        passEdit3->setFont(font);
         passEdit3->setEchoMode(QLineEdit::Password);
 
         formLayout->setWidget(2, QFormLayout::FieldRole, passEdit3);
 
         capsLabel = new QLabel(AskPassphraseDialog);
         capsLabel->setObjectName(QString::fromUtf8("capsLabel"));
-        QFont font;
-        font.setBold(true);
-        font.setWeight(75);
-        capsLabel->setFont(font);
+        QFont font1;
+        font1.setFamily(QString::fromUtf8("Segoe UI"));
+        font1.setBold(true);
+        font1.setWeight(75);
+        capsLabel->setFont(font1);
         capsLabel->setAlignment(Qt::AlignCenter);
 
         formLayout->setWidget(3, QFormLayout::FieldRole, capsLabel);
@@ -110,6 +122,7 @@ public:
 
         buttonBox = new QDialogButtonBox(AskPassphraseDialog);
         buttonBox->setObjectName(QString::fromUtf8("buttonBox"));
+        buttonBox->setFont(font);
         buttonBox->setOrientation(Qt::Horizontal);
         buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
 

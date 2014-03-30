@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'signverifymessagedialog.h'
 **
-** Created: Thu Mar 27 18:05:55 2014
+** Created: Sat Mar 29 19:35:28 2014
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!

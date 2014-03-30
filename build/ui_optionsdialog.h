@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'optionsdialog.ui'
 **
-** Created: Thu Mar 27 18:03:03 2014
+** Created: Sat Mar 29 19:32:37 2014
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -87,11 +87,16 @@ public:
         if (OptionsDialog->objectName().isEmpty())
             OptionsDialog->setObjectName(QString::fromUtf8("OptionsDialog"));
         OptionsDialog->resize(540, 380);
+        OptionsDialog->setStyleSheet(QString::fromUtf8("background-color:#04648A;\n"
+"color:white;"));
         OptionsDialog->setModal(true);
         verticalLayout = new QVBoxLayout(OptionsDialog);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         tabWidget = new QTabWidget(OptionsDialog);
         tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
+        QFont font;
+        font.setFamily(QString::fromUtf8("Segoe UI"));
+        tabWidget->setFont(font);
         tabWidget->setTabPosition(QTabWidget::North);
         tabMain = new QWidget();
         tabMain->setObjectName(QString::fromUtf8("tabMain"));
@@ -145,11 +150,13 @@ public:
         verticalLayout_Network->setObjectName(QString::fromUtf8("verticalLayout_Network"));
         mapPortUpnp = new QCheckBox(tabNetwork);
         mapPortUpnp->setObjectName(QString::fromUtf8("mapPortUpnp"));
+        mapPortUpnp->setFont(font);
 
         verticalLayout_Network->addWidget(mapPortUpnp);
 
         connectSocks = new QCheckBox(tabNetwork);
         connectSocks->setObjectName(QString::fromUtf8("connectSocks"));
+        connectSocks->setFont(font);
 
         verticalLayout_Network->addWidget(connectSocks);
 
@@ -157,6 +164,7 @@ public:
         horizontalLayout_Network->setObjectName(QString::fromUtf8("horizontalLayout_Network"));
         proxyIpLabel = new QLabel(tabNetwork);
         proxyIpLabel->setObjectName(QString::fromUtf8("proxyIpLabel"));
+        proxyIpLabel->setFont(font);
         proxyIpLabel->setTextFormat(Qt::PlainText);
 
         horizontalLayout_Network->addWidget(proxyIpLabel);
@@ -164,11 +172,13 @@ public:
         proxyIp = new QValidatedLineEdit(tabNetwork);
         proxyIp->setObjectName(QString::fromUtf8("proxyIp"));
         proxyIp->setMaximumSize(QSize(140, 16777215));
+        proxyIp->setFont(font);
 
         horizontalLayout_Network->addWidget(proxyIp);
 
         proxyPortLabel = new QLabel(tabNetwork);
         proxyPortLabel->setObjectName(QString::fromUtf8("proxyPortLabel"));
+        proxyPortLabel->setFont(font);
         proxyPortLabel->setTextFormat(Qt::PlainText);
 
         horizontalLayout_Network->addWidget(proxyPortLabel);
@@ -176,17 +186,20 @@ public:
         proxyPort = new QLineEdit(tabNetwork);
         proxyPort->setObjectName(QString::fromUtf8("proxyPort"));
         proxyPort->setMaximumSize(QSize(55, 16777215));
+        proxyPort->setFont(font);
 
         horizontalLayout_Network->addWidget(proxyPort);
 
         socksVersionLabel = new QLabel(tabNetwork);
         socksVersionLabel->setObjectName(QString::fromUtf8("socksVersionLabel"));
+        socksVersionLabel->setFont(font);
         socksVersionLabel->setTextFormat(Qt::PlainText);
 
         horizontalLayout_Network->addWidget(socksVersionLabel);
 
         socksVersion = new QValueComboBox(tabNetwork);
         socksVersion->setObjectName(QString::fromUtf8("socksVersion"));
+        socksVersion->setFont(font);
 
         horizontalLayout_Network->addWidget(socksVersion);
 
@@ -278,10 +291,11 @@ public:
 
         statusLabel = new QLabel(OptionsDialog);
         statusLabel->setObjectName(QString::fromUtf8("statusLabel"));
-        QFont font;
-        font.setBold(true);
-        font.setWeight(75);
-        statusLabel->setFont(font);
+        QFont font1;
+        font1.setFamily(QString::fromUtf8("Segoe UI"));
+        font1.setBold(true);
+        font1.setWeight(75);
+        statusLabel->setFont(font1);
         statusLabel->setTextFormat(Qt::PlainText);
         statusLabel->setWordWrap(true);
 
@@ -293,17 +307,20 @@ public:
 
         okButton = new QPushButton(OptionsDialog);
         okButton->setObjectName(QString::fromUtf8("okButton"));
+        okButton->setFont(font);
 
         horizontalLayout_Buttons->addWidget(okButton);
 
         cancelButton = new QPushButton(OptionsDialog);
         cancelButton->setObjectName(QString::fromUtf8("cancelButton"));
+        cancelButton->setFont(font);
         cancelButton->setAutoDefault(false);
 
         horizontalLayout_Buttons->addWidget(cancelButton);
 
         applyButton = new QPushButton(OptionsDialog);
         applyButton->setObjectName(QString::fromUtf8("applyButton"));
+        applyButton->setFont(font);
         applyButton->setAutoDefault(false);
         applyButton->setDefault(false);
         applyButton->setFlat(false);
@@ -336,20 +353,20 @@ public:
         transactionFeeInfoLabel->setText(QApplication::translate("OptionsDialog", "Optional transaction fee per kB that helps make sure your transactions are processed quickly. Most transactions are 1 kB. Fee 0.01 recommended.", 0, QApplication::UnicodeUTF8));
         transactionFeeLabel->setText(QApplication::translate("OptionsDialog", "Pay transaction &fee", 0, QApplication::UnicodeUTF8));
 #ifndef QT_NO_TOOLTIP
-        bitcoinAtStartup->setToolTip(QApplication::translate("OptionsDialog", "Automatically start Dv8Coin after logging in to the system.", 0, QApplication::UnicodeUTF8));
+        bitcoinAtStartup->setToolTip(QApplication::translate("OptionsDialog", "Automatically start dv8coin after logging in to the system.", 0, QApplication::UnicodeUTF8));
 #endif // QT_NO_TOOLTIP
-        bitcoinAtStartup->setText(QApplication::translate("OptionsDialog", "&Start Dv8Coin on system login", 0, QApplication::UnicodeUTF8));
+        bitcoinAtStartup->setText(QApplication::translate("OptionsDialog", "&Start dv8coin on system login", 0, QApplication::UnicodeUTF8));
 #ifndef QT_NO_TOOLTIP
         detachDatabases->setToolTip(QApplication::translate("OptionsDialog", "Detach block and address databases at shutdown. This means they can be moved to another data directory, but it slows down shutdown. The wallet is always detached.", 0, QApplication::UnicodeUTF8));
 #endif // QT_NO_TOOLTIP
         detachDatabases->setText(QApplication::translate("OptionsDialog", "&Detach databases at shutdown", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(tabMain), QApplication::translate("OptionsDialog", "&Main", 0, QApplication::UnicodeUTF8));
 #ifndef QT_NO_TOOLTIP
-        mapPortUpnp->setToolTip(QApplication::translate("OptionsDialog", "Automatically open the Dv8Coin client port on the router. This only works when your router supports UPnP and it is enabled.", 0, QApplication::UnicodeUTF8));
+        mapPortUpnp->setToolTip(QApplication::translate("OptionsDialog", "Automatically open the dv8coin client port on the router. This only works when your router supports UPnP and it is enabled.", 0, QApplication::UnicodeUTF8));
 #endif // QT_NO_TOOLTIP
         mapPortUpnp->setText(QApplication::translate("OptionsDialog", "Map port using &UPnP", 0, QApplication::UnicodeUTF8));
 #ifndef QT_NO_TOOLTIP
-        connectSocks->setToolTip(QApplication::translate("OptionsDialog", "Connect to the Dv8Coin network through a SOCKS proxy (e.g. when connecting through Tor).", 0, QApplication::UnicodeUTF8));
+        connectSocks->setToolTip(QApplication::translate("OptionsDialog", "Connect to the dv8coin network through a SOCKS proxy (e.g. when connecting through Tor).", 0, QApplication::UnicodeUTF8));
 #endif // QT_NO_TOOLTIP
         connectSocks->setText(QApplication::translate("OptionsDialog", "&Connect through SOCKS proxy:", 0, QApplication::UnicodeUTF8));
         proxyIpLabel->setText(QApplication::translate("OptionsDialog", "Proxy &IP:", 0, QApplication::UnicodeUTF8));
@@ -376,14 +393,14 @@ public:
         tabWidget->setTabText(tabWidget->indexOf(tabWindow), QApplication::translate("OptionsDialog", "&Window", 0, QApplication::UnicodeUTF8));
         langLabel->setText(QApplication::translate("OptionsDialog", "User Interface &language:", 0, QApplication::UnicodeUTF8));
 #ifndef QT_NO_TOOLTIP
-        lang->setToolTip(QApplication::translate("OptionsDialog", "The user interface language can be set here. This setting will take effect after restarting Dv8Coin.", 0, QApplication::UnicodeUTF8));
+        lang->setToolTip(QApplication::translate("OptionsDialog", "The user interface language can be set here. This setting will take effect after restarting dv8coin.", 0, QApplication::UnicodeUTF8));
 #endif // QT_NO_TOOLTIP
         unitLabel->setText(QApplication::translate("OptionsDialog", "&Unit to show amounts in:", 0, QApplication::UnicodeUTF8));
 #ifndef QT_NO_TOOLTIP
         unit->setToolTip(QApplication::translate("OptionsDialog", "Choose the default subdivision unit to show in the interface and when sending coins.", 0, QApplication::UnicodeUTF8));
 #endif // QT_NO_TOOLTIP
 #ifndef QT_NO_TOOLTIP
-        displayAddresses->setToolTip(QApplication::translate("OptionsDialog", "Whether to show Dv8Coin addresses in the transaction list or not.", 0, QApplication::UnicodeUTF8));
+        displayAddresses->setToolTip(QApplication::translate("OptionsDialog", "Whether to show dv8coin addresses in the transaction list or not.", 0, QApplication::UnicodeUTF8));
 #endif // QT_NO_TOOLTIP
         displayAddresses->setText(QApplication::translate("OptionsDialog", "&Display addresses in transaction list", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(tabDisplay), QApplication::translate("OptionsDialog", "&Display", 0, QApplication::UnicodeUTF8));

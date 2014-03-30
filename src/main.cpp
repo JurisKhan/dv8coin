@@ -50,7 +50,7 @@ map<uint256, map<uint256, CDataStream*> > mapOrphanTransactionsByPrev;
 // Constant stuff for coinbase transactions we create:
 CScript COINBASE_FLAGS;
 
-const string strMessageMagic = "Dv8Coin Signed Message:\n";
+const string strMessageMagic = "dv8coin Signed Message:\n";
 
 double dHashesPerSec;
 int64 nHPSTimerStart;
@@ -923,8 +923,8 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
     return nSubsidy + nFees;
 }
 
-static const int64 nTargetTimespan = 1 * 1 * 60 * 60; // Dv8Coin: 1 hour retarget time
-static const int64 nTargetSpacing = 120; // Dv8Coin: 2 minute blocks
+static const int64 nTargetTimespan = 1 * 1 * 60 * 60; // dv8coin: 1 hour retarget time
+static const int64 nTargetSpacing = 120; // dv8coin: 2 minute blocks
 static const int64 nInterval = nTargetTimespan / nTargetSpacing;
 
 // Thanks: Balthazar for suggesting the following fix
@@ -1987,7 +1987,7 @@ bool CheckDiskSpace(uint64 nAdditionalBytes)
         string strMessage = _("Warning: Disk space is low");
         strMiscWarning = strMessage;
         printf("*** %s\n", strMessage.c_str());
-        uiInterface.ThreadSafeMessageBox(strMessage, "Dv8Coin", CClientUIInterface::OK | CClientUIInterface::ICON_EXCLAMATION | CClientUIInterface::MODAL);
+        uiInterface.ThreadSafeMessageBox(strMessage, "dv8coin", CClientUIInterface::OK | CClientUIInterface::ICON_EXCLAMATION | CClientUIInterface::MODAL);
         StartShutdown();
         return false;
     }
@@ -3308,6 +3308,7 @@ void SHA256Transform(void* pstate, void* pinput, const void* pinit)
 // between calls, but periodically or if nNonce is 0xffff0000 or above,
 // the block is rebuilt and nNonce starts over at zero.
 //
+/*
 unsigned int static ScanHash_CryptoPP(char* pmidstate, char* pdata, char* phash1, char* phash, unsigned int& nHashesDone)
 {
     unsigned int& nNonce = *(unsigned int*)(pdata + 12);
@@ -3333,7 +3334,7 @@ unsigned int static ScanHash_CryptoPP(char* pmidstate, char* pdata, char* phash1
         }
     }
 }
-
+*/
 // Some explaining would be appreciated
 class COrphan
 {

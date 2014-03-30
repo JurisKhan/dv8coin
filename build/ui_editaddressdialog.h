@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'editaddressdialog.ui'
 **
-** Created: Thu Mar 27 18:03:03 2014
+** Created: Sat Mar 29 19:32:37 2014
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -40,6 +40,8 @@ public:
         if (EditAddressDialog->objectName().isEmpty())
             EditAddressDialog->setObjectName(QString::fromUtf8("EditAddressDialog"));
         EditAddressDialog->resize(457, 126);
+        EditAddressDialog->setStyleSheet(QString::fromUtf8("background-color:#04648A;\n"
+"color:white;"));
         verticalLayout = new QVBoxLayout(EditAddressDialog);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         formLayout = new QFormLayout();
@@ -47,21 +49,27 @@ public:
         formLayout->setFieldGrowthPolicy(QFormLayout::AllNonFixedFieldsGrow);
         label = new QLabel(EditAddressDialog);
         label->setObjectName(QString::fromUtf8("label"));
+        QFont font;
+        font.setFamily(QString::fromUtf8("Segoe UI"));
+        label->setFont(font);
 
         formLayout->setWidget(0, QFormLayout::LabelRole, label);
 
         labelEdit = new QLineEdit(EditAddressDialog);
         labelEdit->setObjectName(QString::fromUtf8("labelEdit"));
+        labelEdit->setFont(font);
 
         formLayout->setWidget(0, QFormLayout::FieldRole, labelEdit);
 
         label_2 = new QLabel(EditAddressDialog);
         label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setFont(font);
 
         formLayout->setWidget(1, QFormLayout::LabelRole, label_2);
 
         addressEdit = new QLineEdit(EditAddressDialog);
         addressEdit->setObjectName(QString::fromUtf8("addressEdit"));
+        addressEdit->setFont(font);
 
         formLayout->setWidget(1, QFormLayout::FieldRole, addressEdit);
 
@@ -70,6 +78,7 @@ public:
 
         buttonBox = new QDialogButtonBox(EditAddressDialog);
         buttonBox->setObjectName(QString::fromUtf8("buttonBox"));
+        buttonBox->setFont(font);
         buttonBox->setOrientation(Qt::Horizontal);
         buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
 

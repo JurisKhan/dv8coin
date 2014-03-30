@@ -34,9 +34,9 @@ QString BitcoinUnits::name(int unit)
 {
     switch(unit)
     {
-    case BTC: return QString("DV8");
-    case mBTC: return QString("mDV8");
-    case uBTC: return QString::fromUtf8("μDV8");
+    case BTC: return QString("dv8");
+    case mBTC: return QString("mdv8");
+    case uBTC: return QString::fromUtf8("μdv8");
     default: return QString("???");
     }
 }
@@ -45,13 +45,13 @@ QString BitcoinUnits::description(int unit)
 {
     switch(unit)
     {
-    case BTC: return QString("Dv8Coin");
-    case mBTC: return QString("milliDv8Coin (1 / 1,000)");
-    case uBTC: return QString("microDv8Coin (1 / 1,000,000)");
+    case BTC: return QString("dv8coin");
+    case mBTC: return QString("millidv8coin (1 / 1,000)");
+    case uBTC: return QString("microdv8coin (1 / 1,000,000)");
     default: return QString("???");
     }
 }
-//a single unit (.00000001) of Dv8Coin is called a "wander."
+//a single unit (.00000001) of dv8coin is called a "wander."
 qint64 BitcoinUnits::factor(int unit)
 {
     switch(unit)

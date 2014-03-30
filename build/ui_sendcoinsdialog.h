@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'sendcoinsdialog.ui'
 **
-** Created: Thu Mar 27 18:03:03 2014
+** Created: Sat Mar 29 19:32:37 2014
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -49,14 +49,19 @@ public:
         if (SendCoinsDialog->objectName().isEmpty())
             SendCoinsDialog->setObjectName(QString::fromUtf8("SendCoinsDialog"));
         SendCoinsDialog->resize(686, 217);
+        SendCoinsDialog->setStyleSheet(QString::fromUtf8("background-color:#04648A;\n"
+"color:white;"));
         verticalLayout = new QVBoxLayout(SendCoinsDialog);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         scrollArea = new QScrollArea(SendCoinsDialog);
         scrollArea->setObjectName(QString::fromUtf8("scrollArea"));
+        QFont font;
+        font.setFamily(QString::fromUtf8("Segoe UI"));
+        scrollArea->setFont(font);
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 666, 165));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 664, 154));
         verticalLayout_2 = new QVBoxLayout(scrollAreaWidgetContents);
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
@@ -78,6 +83,7 @@ public:
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         addButton = new QPushButton(SendCoinsDialog);
         addButton->setObjectName(QString::fromUtf8("addButton"));
+        addButton->setFont(font);
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/icons/add"), QSize(), QIcon::Normal, QIcon::Off);
         addButton->setIcon(icon);
@@ -92,6 +98,7 @@ public:
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(clearButton->sizePolicy().hasHeightForWidth());
         clearButton->setSizePolicy(sizePolicy);
+        clearButton->setFont(font);
         QIcon icon1;
         icon1.addFile(QString::fromUtf8(":/icons/remove"), QSize(), QIcon::Normal, QIcon::Off);
         clearButton->setIcon(icon1);
@@ -105,11 +112,13 @@ public:
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         label = new QLabel(SendCoinsDialog);
         label->setObjectName(QString::fromUtf8("label"));
+        label->setFont(font);
 
         horizontalLayout_2->addWidget(label);
 
         labelBalance = new QLabel(SendCoinsDialog);
         labelBalance->setObjectName(QString::fromUtf8("labelBalance"));
+        labelBalance->setFont(font);
         labelBalance->setCursor(QCursor(Qt::IBeamCursor));
         labelBalance->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
 
@@ -125,6 +134,7 @@ public:
         sendButton = new QPushButton(SendCoinsDialog);
         sendButton->setObjectName(QString::fromUtf8("sendButton"));
         sendButton->setMinimumSize(QSize(150, 0));
+        sendButton->setFont(font);
         QIcon icon2;
         icon2.addFile(QString::fromUtf8(":/icons/send"), QSize(), QIcon::Normal, QIcon::Off);
         sendButton->setIcon(icon2);

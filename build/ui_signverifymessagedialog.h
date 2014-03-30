@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'signverifymessagedialog.ui'
 **
-** Created: Thu Mar 27 18:03:03 2014
+** Created: Sat Mar 29 19:32:37 2014
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -71,17 +71,23 @@ public:
         if (SignVerifyMessageDialog->objectName().isEmpty())
             SignVerifyMessageDialog->setObjectName(QString::fromUtf8("SignVerifyMessageDialog"));
         SignVerifyMessageDialog->resize(700, 380);
+        SignVerifyMessageDialog->setStyleSheet(QString::fromUtf8("background-color:#04648A;\n"
+"color:white;"));
         SignVerifyMessageDialog->setModal(true);
         verticalLayout = new QVBoxLayout(SignVerifyMessageDialog);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         tabWidget = new QTabWidget(SignVerifyMessageDialog);
         tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
+        QFont font;
+        font.setFamily(QString::fromUtf8("Segoe UI"));
+        tabWidget->setFont(font);
         tabSignMessage = new QWidget();
         tabSignMessage->setObjectName(QString::fromUtf8("tabSignMessage"));
         verticalLayout_SM = new QVBoxLayout(tabSignMessage);
         verticalLayout_SM->setObjectName(QString::fromUtf8("verticalLayout_SM"));
         infoLabel_SM = new QLabel(tabSignMessage);
         infoLabel_SM->setObjectName(QString::fromUtf8("infoLabel_SM"));
+        infoLabel_SM->setFont(font);
         infoLabel_SM->setTextFormat(Qt::PlainText);
         infoLabel_SM->setWordWrap(true);
 
@@ -92,12 +98,14 @@ public:
         horizontalLayout_1_SM->setObjectName(QString::fromUtf8("horizontalLayout_1_SM"));
         addressIn_SM = new QValidatedLineEdit(tabSignMessage);
         addressIn_SM->setObjectName(QString::fromUtf8("addressIn_SM"));
+        addressIn_SM->setFont(font);
         addressIn_SM->setMaxLength(34);
 
         horizontalLayout_1_SM->addWidget(addressIn_SM);
 
         addressBookButton_SM = new QPushButton(tabSignMessage);
         addressBookButton_SM->setObjectName(QString::fromUtf8("addressBookButton_SM"));
+        addressBookButton_SM->setFont(font);
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/icons/address-book"), QSize(), QIcon::Normal, QIcon::Off);
         addressBookButton_SM->setIcon(icon);
@@ -107,6 +115,7 @@ public:
 
         pasteButton_SM = new QPushButton(tabSignMessage);
         pasteButton_SM->setObjectName(QString::fromUtf8("pasteButton_SM"));
+        pasteButton_SM->setFont(font);
         QIcon icon1;
         icon1.addFile(QString::fromUtf8(":/icons/editpaste"), QSize(), QIcon::Normal, QIcon::Off);
         pasteButton_SM->setIcon(icon1);
@@ -119,6 +128,7 @@ public:
 
         messageIn_SM = new QPlainTextEdit(tabSignMessage);
         messageIn_SM->setObjectName(QString::fromUtf8("messageIn_SM"));
+        messageIn_SM->setFont(font);
 
         verticalLayout_SM->addWidget(messageIn_SM);
 
@@ -127,15 +137,17 @@ public:
         horizontalLayout_2_SM->setObjectName(QString::fromUtf8("horizontalLayout_2_SM"));
         signatureOut_SM = new QLineEdit(tabSignMessage);
         signatureOut_SM->setObjectName(QString::fromUtf8("signatureOut_SM"));
-        QFont font;
-        font.setItalic(true);
-        signatureOut_SM->setFont(font);
+        QFont font1;
+        font1.setFamily(QString::fromUtf8("Segoe UI"));
+        font1.setItalic(true);
+        signatureOut_SM->setFont(font1);
         signatureOut_SM->setReadOnly(true);
 
         horizontalLayout_2_SM->addWidget(signatureOut_SM);
 
         copySignatureButton_SM = new QPushButton(tabSignMessage);
         copySignatureButton_SM->setObjectName(QString::fromUtf8("copySignatureButton_SM"));
+        copySignatureButton_SM->setFont(font);
         QIcon icon2;
         icon2.addFile(QString::fromUtf8(":/icons/editcopy"), QSize(), QIcon::Normal, QIcon::Off);
         copySignatureButton_SM->setIcon(icon2);
@@ -150,6 +162,7 @@ public:
         horizontalLayout_3_SM->setObjectName(QString::fromUtf8("horizontalLayout_3_SM"));
         signMessageButton_SM = new QPushButton(tabSignMessage);
         signMessageButton_SM->setObjectName(QString::fromUtf8("signMessageButton_SM"));
+        signMessageButton_SM->setFont(font);
         QIcon icon3;
         icon3.addFile(QString::fromUtf8(":/icons/edit"), QSize(), QIcon::Normal, QIcon::Off);
         signMessageButton_SM->setIcon(icon3);
@@ -159,6 +172,7 @@ public:
 
         clearButton_SM = new QPushButton(tabSignMessage);
         clearButton_SM->setObjectName(QString::fromUtf8("clearButton_SM"));
+        clearButton_SM->setFont(font);
         QIcon icon4;
         icon4.addFile(QString::fromUtf8(":/icons/remove"), QSize(), QIcon::Normal, QIcon::Off);
         clearButton_SM->setIcon(icon4);
@@ -172,10 +186,11 @@ public:
 
         statusLabel_SM = new QLabel(tabSignMessage);
         statusLabel_SM->setObjectName(QString::fromUtf8("statusLabel_SM"));
-        QFont font1;
-        font1.setBold(true);
-        font1.setWeight(75);
-        statusLabel_SM->setFont(font1);
+        QFont font2;
+        font2.setFamily(QString::fromUtf8("Segoe UI"));
+        font2.setBold(true);
+        font2.setWeight(75);
+        statusLabel_SM->setFont(font2);
         statusLabel_SM->setWordWrap(true);
 
         horizontalLayout_3_SM->addWidget(statusLabel_SM);
@@ -253,7 +268,10 @@ public:
 
         statusLabel_VM = new QLabel(tabVerifyMessage);
         statusLabel_VM->setObjectName(QString::fromUtf8("statusLabel_VM"));
-        statusLabel_VM->setFont(font1);
+        QFont font3;
+        font3.setBold(true);
+        font3.setWeight(75);
+        statusLabel_VM->setFont(font3);
         statusLabel_VM->setWordWrap(true);
 
         horizontalLayout_2_VM->addWidget(statusLabel_VM);
@@ -272,7 +290,7 @@ public:
 
         retranslateUi(SignVerifyMessageDialog);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(SignVerifyMessageDialog);

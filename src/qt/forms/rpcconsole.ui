@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dv8Coin - Debug window</string>
+   <string>dv8coin - Debug window</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:#04648A;
+color:white;</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
@@ -261,18 +265,6 @@
          </property>
         </widget>
        </item>
-       <item row="8" column="0">
-        <widget class="QLabel" name="label_8">
-         <property name="font">
-          <font>
-           <family>Segoe UI</family>
-          </font>
-         </property>
-         <property name="text">
-          <string>On testnet</string>
-         </property>
-        </widget>
-       </item>
        <item row="8" column="1">
         <widget class="QCheckBox" name="isTestNet">
          <property name="enabled">
@@ -441,7 +433,7 @@
           </font>
          </property>
          <property name="toolTip">
-          <string>Open the Dv8Coin debug logfile from the current data directory. This can take a few seconds for large logfiles.</string>
+          <string>Open the dv8coin debug logfile from the current data directory. This can take a few seconds for large logfiles.</string>
          </property>
          <property name="text">
           <string>&amp;Open</string>
@@ -500,6 +492,18 @@
           </size>
          </property>
         </spacer>
+       </item>
+       <item row="8" column="0">
+        <widget class="QLabel" name="label_8">
+         <property name="font">
+          <font>
+           <family>Segoe UI</family>
+          </font>
+         </property>
+         <property name="text">
+          <string>On testnet</string>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>

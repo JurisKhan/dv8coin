@@ -13,24 +13,16 @@
   <property name="windowTitle">
    <string>Mining</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:#04648A;
+color:white;</string>
+  </property>
   <layout class="QGridLayout" name="gridLayout">
    <property name="sizeConstraint">
     <enum>QLayout::SetMaximumSize</enum>
    </property>
-   <item row="7" column="1">
-    <widget class="QLineEdit" name="serverLine">
-     <property name="enabled">
-      <bool>true</bool>
-     </property>
-     <property name="font">
-      <font>
-       <family>Segoe UI</family>
-      </font>
-     </property>
-    </widget>
-   </item>
-   <item row="6" column="3">
-    <widget class="QLabel" name="usernameLabel">
+   <item row="6" column="4">
+    <widget class="QLabel" name="passwordLabel">
      <property name="enabled">
       <bool>true</bool>
      </property>
@@ -40,7 +32,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Username</string>
+      <string>Worker Password</string>
      </property>
     </widget>
    </item>
@@ -55,7 +47,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Server</string>
+      <string>Server Address</string>
      </property>
     </widget>
    </item>
@@ -69,13 +61,31 @@
        <family>Segoe UI</family>
       </font>
      </property>
+     <property name="styleSheet">
+      <string notr="true">border: 1px solid #022840;</string>
+     </property>
      <property name="text">
       <string/>
      </property>
     </widget>
    </item>
-   <item row="6" column="4">
-    <widget class="QLabel" name="passwordLabel">
+   <item row="7" column="1">
+    <widget class="QLineEdit" name="serverLine">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border: 1px solid #022840;</string>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="3">
+    <widget class="QLabel" name="usernameLabel">
      <property name="enabled">
       <bool>true</bool>
      </property>
@@ -85,7 +95,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Password</string>
+      <string>Worker.Name</string>
      </property>
     </widget>
    </item>
@@ -153,6 +163,9 @@
        <family>Segoe UI</family>
       </font>
      </property>
+     <property name="styleSheet">
+      <string notr="true">border: 1px solid #022840;</string>
+     </property>
      <property name="autoScrollMargin">
       <number>100000</number>
      </property>
@@ -203,21 +216,6 @@
      </property>
     </widget>
    </item>
-   <item row="3" column="2">
-    <widget class="QLabel" name="threadsLabel">
-     <property name="enabled">
-      <bool>true</bool>
-     </property>
-     <property name="font">
-      <font>
-       <family>Segoe UI</family>
-      </font>
-     </property>
-     <property name="text">
-      <string>Threads</string>
-     </property>
-    </widget>
-   </item>
    <item row="4" column="4">
     <widget class="QCheckBox" name="debugCheckBox">
      <property name="font">
@@ -252,6 +250,9 @@
        <family>Segoe UI</family>
       </font>
      </property>
+     <property name="styleSheet">
+      <string notr="true">border: 1px solid #022840;</string>
+     </property>
      <property name="minimum">
       <number>1</number>
      </property>
@@ -269,6 +270,9 @@
       <font>
        <family>Segoe UI</family>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border: 1px solid #022840;</string>
      </property>
      <property name="editable">
       <bool>false</bool>
@@ -298,6 +302,9 @@
        <family>Segoe UI</family>
       </font>
      </property>
+     <property name="styleSheet">
+      <string notr="true">border: 1px solid #022840;</string>
+     </property>
      <property name="minimum">
       <number>1</number>
      </property>
@@ -316,6 +323,9 @@
        <family>Segoe UI</family>
       </font>
      </property>
+     <property name="styleSheet">
+      <string notr="true">border: 1px solid #022840;</string>
+     </property>
      <property name="text">
       <string>9332</string>
      </property>
@@ -333,6 +343,9 @@
       <font>
        <family>Segoe UI</family>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border: 1px solid #022840;</string>
      </property>
     </widget>
    </item>
@@ -357,6 +370,21 @@
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="2">
+    <widget class="QLabel" name="threadsLabel">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+      </font>
+     </property>
+     <property name="text">
+      <string>CPU Threads</string>
      </property>
     </widget>
    </item>

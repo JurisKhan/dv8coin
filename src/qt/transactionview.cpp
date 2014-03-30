@@ -104,6 +104,7 @@ TransactionView::TransactionView(QWidget *parent) :
     vlayout->setSpacing(0);
 
     QTableView *view = new QTableView(this);
+    view->setStyleSheet("background-color:white; color:black;");
     vlayout->addLayout(hlayout);
     vlayout->addWidget(createDateRangeWidget());
     vlayout->addWidget(view);

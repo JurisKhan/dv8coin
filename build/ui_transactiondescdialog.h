@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'transactiondescdialog.ui'
 **
-** Created: Thu Mar 27 18:03:03 2014
+** Created: Sat Mar 29 19:32:37 2014
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -34,16 +34,23 @@ public:
         if (TransactionDescDialog->objectName().isEmpty())
             TransactionDescDialog->setObjectName(QString::fromUtf8("TransactionDescDialog"));
         TransactionDescDialog->resize(620, 250);
+        TransactionDescDialog->setStyleSheet(QString::fromUtf8("background-color:#04648A;\n"
+"color:white;"));
         verticalLayout = new QVBoxLayout(TransactionDescDialog);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         detailText = new QTextEdit(TransactionDescDialog);
         detailText->setObjectName(QString::fromUtf8("detailText"));
+        QFont font;
+        font.setFamily(QString::fromUtf8("Segoe UI"));
+        detailText->setFont(font);
+        detailText->setStyleSheet(QString::fromUtf8("QTextEdit {background-color:#022840;}"));
         detailText->setReadOnly(true);
 
         verticalLayout->addWidget(detailText);
 
         buttonBox = new QDialogButtonBox(TransactionDescDialog);
         buttonBox->setObjectName(QString::fromUtf8("buttonBox"));
+        buttonBox->setFont(font);
         buttonBox->setOrientation(Qt::Horizontal);
         buttonBox->setStandardButtons(QDialogButtonBox::Close);
 

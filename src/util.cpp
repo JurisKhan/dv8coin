@@ -972,13 +972,13 @@ void PrintExceptionContinue(std::exception* pex, const char* pszThread)
 boost::filesystem::path GetDefaultDataDir()
 {
     namespace fs = boost::filesystem;
-    // Windows < Vista: C:\Documents and Settings\Username\Application Data\Dv8Coin
-    // Windows >= Vista: C:\Users\Username\AppData\Roaming\Dv8Coin
-    // Mac: ~/Library/Application Support/Dv8Coin
+    // Windows < Vista: C:\Documents and Settings\Username\Application Data\dv8coin
+    // Windows >= Vista: C:\Users\Username\AppData\Roaming\dv8coin
+    // Mac: ~/Library/Application Support/dv8coin
     // Unix: ~/.dv8coin
 #ifdef WIN32
     // Windows
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "Dv8Coin";
+    return GetSpecialFolderPath(CSIDL_APPDATA) / "dv8coin";
 #else
     fs::path pathRet;
     char* pszHome = getenv("HOME");
@@ -990,7 +990,7 @@ boost::filesystem::path GetDefaultDataDir()
     // Mac
     pathRet /= "Library/Application Support";
     fs::create_directory(pathRet);
-    return pathRet / "Dv8Coin";
+    return pathRet / "dv8coin";
 #else
     // Unix
     return pathRet / ".dv8coin";
@@ -1206,10 +1206,10 @@ void AddTimeData(const CNetAddr& ip, int64 nTime)
                 if (!fMatch)
                 {
                     fDone = true;
-                    string strMessage = _("Warning: Please check that your computer's date and time are correct.  If your clock is wrong Dv8Coin will not work properly.");
+                    string strMessage = _("Warning: Please check that your computer's date and time are correct.  If your clock is wrong dv8coin will not work properly.");
                     strMiscWarning = strMessage;
                     printf("*** %s\n", strMessage.c_str());
-                    uiInterface.ThreadSafeMessageBox(strMessage+" ", string("Dv8Coin"), CClientUIInterface::OK | CClientUIInterface::ICON_EXCLAMATION);
+                    uiInterface.ThreadSafeMessageBox(strMessage+" ", string("dv8coin"), CClientUIInterface::OK | CClientUIInterface::ICON_EXCLAMATION);
                 }
             }
         }

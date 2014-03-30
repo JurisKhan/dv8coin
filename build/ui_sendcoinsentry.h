@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'sendcoinsentry.ui'
 **
-** Created: Thu Mar 27 18:03:03 2014
+** Created: Sat Mar 29 19:32:37 2014
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -46,6 +46,8 @@ public:
         if (SendCoinsEntry->objectName().isEmpty())
             SendCoinsEntry->setObjectName(QString::fromUtf8("SendCoinsEntry"));
         SendCoinsEntry->resize(729, 136);
+        SendCoinsEntry->setStyleSheet(QString::fromUtf8("background-color:#04648A;\n"
+"color:white;"));
         SendCoinsEntry->setFrameShape(QFrame::StyledPanel);
         SendCoinsEntry->setFrameShadow(QFrame::Sunken);
         gridLayout = new QGridLayout(SendCoinsEntry);
@@ -53,18 +55,24 @@ public:
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         label = new QLabel(SendCoinsEntry);
         label->setObjectName(QString::fromUtf8("label"));
+        QFont font;
+        font.setFamily(QString::fromUtf8("Segoe UI"));
+        label->setFont(font);
         label->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
         gridLayout->addWidget(label, 5, 0, 1, 1);
 
         label_2 = new QLabel(SendCoinsEntry);
         label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setFont(font);
         label_2->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
         gridLayout->addWidget(label_2, 3, 0, 1, 1);
 
         payAmount = new BitcoinAmountField(SendCoinsEntry);
         payAmount->setObjectName(QString::fromUtf8("payAmount"));
+        payAmount->setFont(font);
+        payAmount->setStyleSheet(QString::fromUtf8("border: 1px solid #022840;"));
 
         gridLayout->addWidget(payAmount, 5, 1, 1, 1);
 
@@ -74,6 +82,8 @@ public:
         addAsLabel = new QValidatedLineEdit(SendCoinsEntry);
         addAsLabel->setObjectName(QString::fromUtf8("addAsLabel"));
         addAsLabel->setEnabled(true);
+        addAsLabel->setFont(font);
+        addAsLabel->setStyleSheet(QString::fromUtf8("border: 1px solid #022840;"));
 
         horizontalLayout_2->addWidget(addAsLabel);
 
@@ -82,6 +92,7 @@ public:
 
         label_4 = new QLabel(SendCoinsEntry);
         label_4->setObjectName(QString::fromUtf8("label_4"));
+        label_4->setFont(font);
         label_4->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
         gridLayout->addWidget(label_4, 4, 0, 1, 1);
@@ -91,12 +102,15 @@ public:
         payToLayout->setObjectName(QString::fromUtf8("payToLayout"));
         payTo = new QValidatedLineEdit(SendCoinsEntry);
         payTo->setObjectName(QString::fromUtf8("payTo"));
+        payTo->setFont(font);
+        payTo->setStyleSheet(QString::fromUtf8("border: 1px solid #022840;"));
         payTo->setMaxLength(34);
 
         payToLayout->addWidget(payTo);
 
         addressBookButton = new QToolButton(SendCoinsEntry);
         addressBookButton->setObjectName(QString::fromUtf8("addressBookButton"));
+        addressBookButton->setFont(font);
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/icons/address-book"), QSize(), QIcon::Normal, QIcon::Off);
         addressBookButton->setIcon(icon);
@@ -105,6 +119,7 @@ public:
 
         pasteButton = new QToolButton(SendCoinsEntry);
         pasteButton->setObjectName(QString::fromUtf8("pasteButton"));
+        pasteButton->setFont(font);
         QIcon icon1;
         icon1.addFile(QString::fromUtf8(":/icons/editpaste"), QSize(), QIcon::Normal, QIcon::Off);
         pasteButton->setIcon(icon1);
@@ -113,6 +128,7 @@ public:
 
         deleteButton = new QToolButton(SendCoinsEntry);
         deleteButton->setObjectName(QString::fromUtf8("deleteButton"));
+        deleteButton->setFont(font);
         QIcon icon2;
         icon2.addFile(QString::fromUtf8(":/icons/remove"), QSize(), QIcon::Normal, QIcon::Off);
         deleteButton->setIcon(icon2);

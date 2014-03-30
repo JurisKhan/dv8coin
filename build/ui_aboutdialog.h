@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'aboutdialog.ui'
 **
-** Created: Thu Mar 27 18:03:03 2014
+** Created: Sat Mar 29 19:32:37 2014
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -44,6 +44,8 @@ public:
         if (AboutDialog->objectName().isEmpty())
             AboutDialog->setObjectName(QString::fromUtf8("AboutDialog"));
         AboutDialog->resize(593, 331);
+        AboutDialog->setStyleSheet(QString::fromUtf8("background-color:#04648A;\n"
+"color:white;"));
         horizontalLayout_2 = new QHBoxLayout(AboutDialog);
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         label_4 = new QLabel(AboutDialog);
@@ -53,6 +55,11 @@ public:
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(label_4->sizePolicy().hasHeightForWidth());
         label_4->setSizePolicy(sizePolicy);
+        QFont font;
+        font.setFamily(QString::fromUtf8("Segoe UI"));
+        label_4->setFont(font);
+        label_4->setStyleSheet(QString::fromUtf8("background-color:#04648A;\n"
+"color:white;"));
         label_4->setPixmap(QPixmap(QString::fromUtf8(":/images/about")));
 
         horizontalLayout_2->addWidget(label_4);
@@ -67,15 +74,21 @@ public:
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         label = new QLabel(AboutDialog);
         label->setObjectName(QString::fromUtf8("label"));
+        label->setFont(font);
         label->setCursor(QCursor(Qt::IBeamCursor));
+        label->setStyleSheet(QString::fromUtf8("background-color:#04648A;\n"
+"color:white;"));
         label->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
 
         horizontalLayout->addWidget(label);
 
         versionLabel = new QLabel(AboutDialog);
         versionLabel->setObjectName(QString::fromUtf8("versionLabel"));
+        versionLabel->setFont(font);
         versionLabel->setCursor(QCursor(Qt::IBeamCursor));
-        versionLabel->setText(QString::fromUtf8("0.3.666-beta"));
+        versionLabel->setStyleSheet(QString::fromUtf8("background-color:#04648A;\n"
+"color:white;"));
+        versionLabel->setText(QString::fromUtf8("1.3.666-beta"));
         versionLabel->setTextFormat(Qt::RichText);
         versionLabel->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
 
@@ -90,7 +103,10 @@ public:
 
         label_2 = new QLabel(AboutDialog);
         label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setFont(font);
         label_2->setCursor(QCursor(Qt::IBeamCursor));
+        label_2->setStyleSheet(QString::fromUtf8("background-color:#04648A;\n"
+"color:white;"));
         label_2->setWordWrap(true);
         label_2->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
 
@@ -102,6 +118,9 @@ public:
 
         buttonBox = new QDialogButtonBox(AboutDialog);
         buttonBox->setObjectName(QString::fromUtf8("buttonBox"));
+        buttonBox->setFont(font);
+        buttonBox->setStyleSheet(QString::fromUtf8("background-color:#04648A;\n"
+"color:white;"));
         buttonBox->setOrientation(Qt::Horizontal);
         buttonBox->setStandardButtons(QDialogButtonBox::Ok);
 
@@ -126,14 +145,14 @@ public:
 "          Copyright \302\251 2009-2012 Bitcoin Developers\n"
 "          Copyright \302\251 2011-2012 Litecoin Developers\n"
 "          Copyright \302\251 2013 adam m!\n"
-"\n"
+"          Copyright \302\251 2013 dv8coin Developers\n"
 "          This is experimental software.\n"
 "\n"
 "          Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php.\n"
 "\n"
 "          This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/) and cryptographic software written by Eric Young (eay@cryptsoft.com) and UPnP software written by Thomas Bernard.\n"
 "\n"
-"          Website: andarazoroflove.org\n"
+"          Website: https;//www.dv8coin.org\n"
 "        ", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 

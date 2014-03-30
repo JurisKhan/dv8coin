@@ -86,7 +86,7 @@ static void InitMessage(const std::string &message)
 {
     if(splashref)
     {
-        splashref->showMessage(QString::fromStdString(message), Qt::AlignBottom|Qt::AlignHCenter, QColor(255,255,200));
+        splashref->showMessage(QString::fromStdString(message), Qt::AlignBottom|Qt::AlignHCenter, QColor("orange"));
         QApplication::instance()->processEvents();
     }
 }
@@ -109,7 +109,7 @@ static std::string Translate(const char* psz)
 static void handleRunawayException(std::exception *e)
 {
     PrintExceptionContinue(e, "Runaway exception");
-    QMessageBox::critical(0, "Runaway exception", BitcoinGUI::tr("A fatal error occured. Dv8Coin can no longer continue safely and will quit.") + QString("\n\n") + QString::fromStdString(strMiscWarning));
+    QMessageBox::critical(0, "Runaway exception", BitcoinGUI::tr("A fatal error occured. dv8coin can no longer continue safely and will quit.") + QString("\n\n") + QString::fromStdString(strMiscWarning));
     exit(1);
 }
 
@@ -169,8 +169,8 @@ int main(int argc, char *argv[])
 
     // Application identification (must be set before OptionsModel is initialized,
     // as it is used to locate QSettings)
-    app.setOrganizationName("Dv8Coin");
-    app.setOrganizationDomain("we-have-no-domain-yet.nex");
+    app.setOrganizationName("dv8coin");
+    app.setOrganizationDomain("http://www.dv8coin.org");
     if(GetBoolArg("-testnet")) // Separate UI settings for testnet
         app.setApplicationName("dv8coin-qt-testnet");
     else

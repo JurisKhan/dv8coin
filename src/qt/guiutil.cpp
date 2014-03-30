@@ -128,7 +128,7 @@ bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 
 bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
 {
-    // Convert Dv8Coin:// to Dv8Coin:
+    // Convert dv8coin:// to dv8coin:
     //
     //    Cannot handle this later, because dv8coin:// will cause Qt to see the part after // as host,
     //    which will lowercase it (and thus invalidate the address).
@@ -278,12 +278,12 @@ bool ToolTipToRichTextFilter::eventFilter(QObject *obj, QEvent *evt)
 #ifdef WIN32
 boost::filesystem::path static StartupShortcutPath()
 {
-    return GetSpecialFolderPath(CSIDL_STARTUP) / "Dv8Coin.lnk";
+    return GetSpecialFolderPath(CSIDL_STARTUP) / "dv8coin.lnk";
 }
 
 bool GetStartOnSystemStartup()
 {
-    // check for Dv8Coin.lnk
+    // check for dv8coin.lnk
     return boost::filesystem::exists(StartupShortcutPath());
 }
 
@@ -401,7 +401,7 @@ bool SetStartOnSystemStartup(bool fAutoStart)
         // Write a dv8coin.desktop file to the autostart directory:
         optionFile << "[Desktop Entry]\n";
         optionFile << "Type=Application\n";
-        optionFile << "Name=Dv8Coin\n";
+        optionFile << "Name=dv8coin\n";
         optionFile << "Exec=" << pszExePath << " -min\n";
         optionFile << "Terminal=false\n";
         optionFile << "Hidden=false\n";
