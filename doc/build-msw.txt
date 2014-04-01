@@ -47,7 +47,7 @@ miniupnpc    1.6
 
 OpenSSL
 -------
-MSYS shell:
+MSYS shell: - C:\MinGW\msys\1.0\msys.bat
 un-tar sources with MSYS 'tar xfz' to avoid issue with symlinks (OpenSSL ticket 2377)
 change 'MAKE' env. variable from 'C:\MinGW32\bin\mingw32-make.exe' to '/c/MinGW32/bin/mingw32-make.exe'
 
@@ -57,7 +57,7 @@ make
 
 Berkeley DB
 -----------
-MSYS shell:
+MSYS shell:  - C:\MinGW\msys\1.0\msys.bat
 cd /c/db-4.8.30.NC-mgw/build_unix
 sh ../dist/configure --enable-mingw --enable-cxx
 make
