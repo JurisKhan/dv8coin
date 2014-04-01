@@ -5,25 +5,25 @@
 USE_UPNP:=0
 
 INCLUDEPATHS= \
- -I"C:\deps\boost" \
- -I"C:\deps\db\build_unix" \
- -I"C:\deps\ssl\include"
+ -I"C:\deps\boost_1_47_0" \
+ -I"C:\deps\db-4.8.30.NC\build_unix" \
+ -I"C:\deps\ssl\include" \
 
 LIBPATHS= \
- -L"C:\deps\boost\stage\lib" \
- -L"C:\deps\db\build_unix" \
- -L"C:\deps\ssl"
+ -L"C:\deps\boost_1_47_0\stage\lib" \
+ -L"C:\deps\db-4.8.30.NC\build_unix" \
+ -L"C:\deps\ssl" \
 
 LIBS= \
- -l boost_system-mgw46-mt-s-1_49 \
- -l boost_filesystem-mgw46-mt-s-1_49 \
- -l boost_program_options-mgw46-mt-s-1_49 \
+ -l boost_system-mgw48-mt-s-1_47 \
+ -l boost_filesystem-mgw48-mt-s-1_47 \
+ -l boost_program_options-mgw48-mt-s-1_47 \
  -l boost_thread-mgw46-mt-s-1_49 \
  -l db_cxx \
  -l ssl \
  -l crypto
 
-DEFS=-DWIN32 -D_WINDOWS -DBOOST_THREAD_USE_LIB -DBOOST_SPIRIT_THREADSAFE -DUSE_IPV6 -D__NO_SYSTEM_INCLUDES
+DEFS=-DWIN32 -D_WINDOWS -DBOOST_THREAD_USE_LIB -DBOOST_SPIRIT_THREADSAFE -DUSE_IPV6 -D__NO_SYSTEM_INCLUDES -DWIN32_LEAN_AND_MEAN
 DEBUGFLAGS=-g
 CFLAGS=-mthreads -O2 -w -Wall -Wextra -Wformat -Wformat-security -Wno-unused-parameter $(DEBUGFLAGS) $(DEFS) $(INCLUDEPATHS)
 
