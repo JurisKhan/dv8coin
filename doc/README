@@ -3,6 +3,8 @@ dv8coin 1.0
 Copyright (c) 2009-2012 Bitcoin Developers
 Copyright (c) 2011-2012 Litecoin Developers
 Copyright (c) 2013 adam m!
+Copyright (c) 2014 dv8coin Developers
+
 
 Distributed under the MIT/X11 software license, see the accompanying
 file COPYING or http://www.opensource.org/licenses/mit-license.php.
@@ -31,6 +33,7 @@ Unpack the files into a directory and run:
  bin/64/dv8coin (headless, 64-bit)
 
 
-See the documentation at the bitcoin wiki:
+See the documentation at the bitcoin wiki or the dv8coin website:
+  http://www.dv8coin.org
   https://en.bitcoin.it/wiki/Main_Page
 for help and more information.
